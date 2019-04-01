@@ -1,6 +1,6 @@
 EXE = peli
 LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
-FILES =
+FILES = main.cc
 all: run
 
 run : $(FILES)
