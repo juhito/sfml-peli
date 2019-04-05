@@ -1,6 +1,6 @@
-EXE = peli
+EXE = timber
 LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
-FILES = main.cc
+FILES = timber.cc engine.cc assets.cc
 all: run
 
 run : $(FILES)
