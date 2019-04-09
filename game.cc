@@ -2,7 +2,7 @@
 
 Game::Game() : m_window("Timber", sf::Vector2u(900, 1600)) {
     m_asset.init();
-    score = 0;
+    m_score = 0;
     m_input = true;
 }
 
@@ -35,8 +35,14 @@ void Game::handle_input(sf::Event event) {
         case sf::Event::KeyPressed:
             if(event.key.code == sf::Keyboard::Left && m_input) {
                 m_asset.log_active = true;
-                score++;
-                m_asset.update_branches(score);
+                m_score++;
+                m_asset.update_branches(m_score);
+                m_input = false;
+            }
+            else if(event.key.code == sf::Keyboard::Right && m_input) {
+                m_asset.log_active = true;
+                m_score++;
+                m_asset.update_branches(m_score);
                 m_input = false;
             }
             break;

@@ -18,21 +18,20 @@ public:
 
     bool log_active;
     void update_branches(int seed);
-
-    side branch_position[6];
-    
 private:
-    sf::Texture _bg_t;
-    sf::Texture _tree_t;
-    sf::Texture _tree_bt;
-    sf::Texture _log_t;
-    sf::Texture _branch_t;
+    sf::Texture m_bg_t;
+    sf::Texture m_tree_t;
+    sf::Texture m_tree_bt;
+    sf::Texture m_log_t;
+    sf::Texture m_branch_t;
     
-    sf::Sprite _bg;
-    sf::Sprite _tree_u[6];
-    sf::Sprite _branches[6];
-    sf::Sprite _tree_b;
-    sf::Sprite _log;    
+    sf::Sprite m_bg;
+    sf::Sprite m_tree_u[6];
+    sf::Sprite m_branches[6];
+    sf::Sprite m_tree_b;
+    sf::Sprite m_log;
+
+    side m_branch_position[6];
 };
 
 #endif

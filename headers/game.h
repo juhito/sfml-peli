@@ -25,8 +25,8 @@ private:
     Window m_window;
     assets m_asset;
 
-    int score;
     bool m_input;
+    int m_score;
 
     sf::Texture m_texture;
     sf::Sprite m_sprite; 
