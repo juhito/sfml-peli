@@ -8,7 +8,6 @@
 enum class side { LEFT, RIGHT, NONE };
 
 class assets {
-    
 public:
     assets();
     ~assets();
@@ -33,9 +32,7 @@ private:
     sf::Sprite _tree_u[6];
     sf::Sprite _branches[6];
     sf::Sprite _tree_b;
-    sf::Sprite _log;
-
-    
+    sf::Sprite _log;    
 };
 
 #endif

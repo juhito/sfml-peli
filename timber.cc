@@ -1,5 +1,5 @@
 #include <iostream>
-#include "engine.h"
+#include "headers/game.h"
 
 /*
 
@@ -16,22 +16,13 @@
 
 int main(void) {
 
-    engine game;
+    Game game;
 
-    if(!game.init()) {
-        std::cout << "Something went wrong..\n";
+    while(!game.get_window()->is_done()) {
+        game.handle_events();
+        game.update();
+        game.render();
+        game.restart_clock();
     }
-    else {
-        while(game.window.isOpen()) {
-            game.dt = game.clock.restart();
-           
-            if(!game.event_poll()){
-                std::cout << "Thanks for playing!\n";
-            }
-            
-            game.draw();
-        }
-    }
-
     return(0);
 }

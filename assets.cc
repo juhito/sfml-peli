@@ -1,4 +1,4 @@
-#include "assets.h"
+#include "headers/assets.h"
 
 assets::assets() {}
 
@@ -12,18 +12,19 @@ void assets::init() {
     _branch_t.loadFromFile("assets/branch.png");
     _bg.setTexture(_bg_t);
     _bg.setPosition(0, 0);
+    
     for(int i = 0; i < 6; i++) {
         _tree_u[i].setTexture(_tree_t);
         if(i == 0)
             _tree_u[i].setPosition(50, 900);
         else
             _tree_u[i].setPosition(50, _tree_u[i-1].getPosition().y - 200);
-        std::cout << _tree_u[i].getPosition().y << "\n";
     }
 
     for(int i = 0; i < 6; i++) {
         _branches[i].setTexture(_branch_t);
         _branches[i].setPosition(-2000, -2000);
+        branch_position[i] = side::NONE;
     }
     
     _tree_b.setTexture(_tree_bt);
@@ -49,26 +50,6 @@ void assets::update(sf::Time& dt) {
             _log.setPosition(394, 1250);
         }
     }
-
-    for(int i = 0; i < 6; i++) {
-        float height = i * 200;
-
-        if(branch_position[i] == side::LEFT) {
-            // move the sprite to left
-            _branches[i].setPosition(360, height);
-            _branches[i].setOrigin(300, 40);
-            _branches[i].setRotation(0);
-        }
-        else if(branch_position[i] == side::RIGHT) {
-            // move the sprite to right
-            _branches[i].setPosition(470, height);
-
-            _branches[i].setOrigin(400, 40);
-            _branches[i].setRotation(180);
-        }
-        else
-            _branches[i].setPosition(4000, height);
-    }    
 }
 
 void assets::draw(sf::RenderWindow& window) {
@@ -87,6 +68,26 @@ void assets::draw(sf::RenderWindow& window) {
 
 void assets::update_branches(int seed) {
 
+    for(int i = 0; i < 6; i++) {
+        float height = i * 150;
+
+        if(branch_position[i] == side::LEFT) {
+            // move the sprite to left
+            _branches[i].setPosition(360, height);
+            _branches[i].setOrigin(300, 40);
+            _branches[i].setRotation(0);
+        }
+        else if(branch_position[i] == side::RIGHT) {
+            // move the sprite to right
+            _branches[i].setPosition(470, height);
+
+            _branches[i].setOrigin(400, 40);
+            _branches[i].setRotation(180);
+        }
+        else
+            _branches[i].setPosition(4000, height);
+    }
+    
     // moving all branches down one
     for(int i = 5; i > 0; i--) 
         branch_position[i] = branch_position[i - 1];
