@@ -5,7 +5,11 @@
 #include <SFML/Audio.hpp>
 #include <iostream>
 
+#include "player.h"
+
 enum class side { LEFT, RIGHT, NONE };
+
+class Player;
 
 class assets {
 public:
@@ -15,9 +19,10 @@ public:
     void init();
     void update(sf::Time& dt);
     void draw(sf::RenderWindow& window);
-
-    bool log_active;
+    void handle_input(Player& player, sf::Event& event);
     void update_branches(int seed);
+
+    sf::FloatRect get_branch_bounds();
 private:
     sf::Texture m_bg_t;
     sf::Texture m_tree_t;
@@ -30,6 +35,10 @@ private:
     sf::Sprite m_branches[6];
     sf::Sprite m_tree_b;
     sf::Sprite m_log;
+
+    bool m_input;
+    bool m_log_active;
+    side m_log_side;
 
     side m_branch_position[6];
 };

@@ -6,6 +6,7 @@
 
 #include "window.h"
 #include "assets.h"
+#include "player.h"
 
 class Game {
 public:
@@ -24,6 +25,7 @@ public:
 private:
     Window m_window;
     assets m_asset;
+    Player m_player;
 
     bool m_input;
     int m_score;

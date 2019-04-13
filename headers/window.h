@@ -34,6 +34,7 @@ private:
     void create();
 
     sf::RenderWindow m_window;
+    sf::View m_view;
     sf::Event m_event;
     sf::Vector2u m_wsize;
     std::string m_wtitle;
