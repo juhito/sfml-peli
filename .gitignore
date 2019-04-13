@@ -32,7 +32,7 @@
 *.app
 *#.cc
 
-timber.a
-timber.so
-timber.out
-timber.la
+*timber.a
+*timber.so
+*timber.out
+*timber.la
