@@ -1,9 +1,3 @@
-/timber.elf
-/timber.out
-/timber.o
-/timber.so
-/timber.lsb
-
 #Prerequisites
 *.d
 

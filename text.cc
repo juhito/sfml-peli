@@ -17,7 +17,6 @@ void Text::setup(int visible, int csize, int width, sf::Vector2f pos) {
 
     sf::Vector2f offset(2.0f, 2.0f);
 
-    if(m_messages.size() < 3) return;
     m_font.loadFromFile("assets/FreeMono.ttf");
     m_content.setFont(m_font);
     m_content.setString("");
@@ -27,7 +26,8 @@ void Text::setup(int visible, int csize, int width, sf::Vector2f pos) {
 }
 
 void Text::add(std::string message, int pos) {
-    m_messages.insert(m_messages.begin() + pos, message);   
+    m_messages.insert(m_messages.begin() + pos, message);
+    if(m_messages.size() < 3) return;
     m_messages.erase(m_messages.begin());
 }
 
@@ -46,4 +46,3 @@ void Text::draw(sf::RenderWindow& window) {
         window.draw(m_content);
     }
 }
-
