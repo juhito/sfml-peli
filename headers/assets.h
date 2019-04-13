@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "player.h"
+#include "text.h"
 
 enum class side { LEFT, RIGHT, NONE };
 
@@ -19,7 +20,7 @@ public:
     void init();
     void update(sf::Time& dt);
     void draw(sf::RenderWindow& window);
-    void handle_input(Player& player, sf::Event& event);
+    void handle_input(Player& player, Text& text, sf::Event& event);
     void update_branches(int seed);
 
     sf::FloatRect get_branch_bounds();

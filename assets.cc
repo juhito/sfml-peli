@@ -78,17 +78,19 @@ void assets::update(sf::Time& dt) {
 
 }
 
-void assets::handle_input(Player& player, sf::Event& event) {
+void assets::handle_input(Player& player, Text& text, sf::Event& event) {
     if(event.type == sf::Event::KeyPressed) {
         if(event.key.code == sf::Keyboard::Left && m_input && !m_log_active) {
             m_log_active = true;
             m_log_side = side::LEFT;
             this->update_branches(player.get_score());
+            text.add("Score: " + std::to_string(player.get_score()), 2);
         }
         else if(event.key.code == sf::Keyboard::Right && m_input && !m_log_active) {
             m_log_side = side::RIGHT;
             m_log_active = true;
             this->update_branches(player.get_score());
+            text.add("Score: " + std::to_string(player.get_score()), 2);
         }
 
         m_input = false;

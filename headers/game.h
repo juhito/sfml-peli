@@ -7,6 +7,7 @@
 #include "window.h"
 #include "assets.h"
 #include "player.h"
+#include "text.h"
 
 class Game {
 public:
@@ -26,15 +27,15 @@ private:
     Window m_window;
     assets m_asset;
     Player m_player;
-
-    bool m_input;
-    int m_score;
+    Text m_text;
 
     sf::Texture m_texture;
     sf::Sprite m_sprite; 
 
     sf::Clock m_clock;
     sf::Time m_elapsed;
+
+    float m_time_left;
 };
 
 #endif

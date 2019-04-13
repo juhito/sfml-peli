@@ -89,7 +89,7 @@ void Player::update(assets& asset, sf::Time& dt) {
     }
     
     if(m_sprite.getGlobalBounds().intersects(asset.get_branch_bounds())) {
-        std::cout << "player got hit\n";
+        this->lose();
     }
 }
         
