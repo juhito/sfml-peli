@@ -3,7 +3,7 @@
 Simple 2D arcade style casual game. Chop wood, avoid branches, git gud. Written in C++/SFML.
 
 ### Dependencies
-- g++ or any other compiler with C++11 support.
+- g++ or any other compiler with C++14 support.
 - make
 - SFML >= 2.5
 
