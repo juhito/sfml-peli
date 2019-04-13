@@ -9,7 +9,8 @@ Simple 2D arcade style casual game. Chop wood, avoid branches, git gud. Written 
 
 ### Compilation
 #### Linux
-```git clone https://github.com/juhito/sfml-peli.git
+```
+git clone https://github.com/juhito/sfml-peli.git
 cd sfml-peli
 make
 ```
