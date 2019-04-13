@@ -12,11 +12,9 @@ Game::Game() : m_window("Timber", sf::Vector2u(900, 1024)) {
 Game::~Game() {}
 
 void Game::update() {
-
     sf::Vector2u wsize = m_window.get_window_size();
 
     float timestep = 1.0f / 60.f;
-
 
     // 60 frames per second
     if(m_elapsed.asSeconds() >= timestep) {
@@ -38,9 +36,6 @@ void Game::update() {
             m_text.add("Score: " + std::to_string(m_player.get_score()), 1);
         }
     }
-
-
-    
 }
 
 void Game::handle_events() {
