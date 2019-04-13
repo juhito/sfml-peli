@@ -1,4 +1,10 @@
-# Prerequisites
+/timber.elf
+/timber.out
+/timber.o
+/timber.so
+/timber.lsb
+
+#Prerequisites
 *.d
 
 # Compiled Object files
@@ -33,6 +39,3 @@
 *.app
 *#.cc
 *.elf
-*.so
-
-~/projects/safari/pelit/eka/timber
