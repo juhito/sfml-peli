@@ -10,7 +10,6 @@ void Player::init() {
     m_anim.loadFromFile("assets/tm2.png");
     m_anim.setSmooth(true);
     m_sprite.setTexture(m_texture);
-    
     m_sprite.setPosition(100, 1050);
     m_side = side::LEFT;
     m_score = 0;
@@ -77,8 +76,7 @@ void Player::handle_input(sf::Event event) {
         m_input = true;
 }
 
-void Player::update(assets& asset, sf::Time& dt) {
-
+void Player::update(Assets& asset, sf::Time& dt) {
     if(m_side != side::NONE) {
         m_duration += dt.asSeconds();
 

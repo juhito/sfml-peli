@@ -3,7 +3,7 @@
 Game::Game() : m_window("Timber", sf::Vector2u(900, 1024)) {
     m_asset.init();
     m_player.init();
-    m_text.setup(5, 23, 350, sf::Vector2f(150, 0));
+    m_text.setup(23, sf::Vector2f(150, 0));
     m_text.add("Time Left" + std::to_string(m_time_left), 0);
     m_text.add("Score: 0", 1);
     m_time_left = 8.f;

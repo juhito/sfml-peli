@@ -1,10 +1,10 @@
 #include "headers/assets.h"
 
-assets::assets() {}
+Assets::Assets() {}
 
-assets::~assets() {}
+Assets::~Assets() {}
 
-void assets::init() {
+void Assets::init() {
     m_bg_t.loadFromFile("assets/bg.png");
     m_tree_t.loadFromFile("assets/tree_upper.png");
     m_tree_bt.loadFromFile("assets/tree_base.png");
@@ -35,7 +35,7 @@ void assets::init() {
     m_input = true;
 }
 
-void assets::update(sf::Time& dt) {
+void Assets::update(sf::Time& dt) {
     if(m_log_active) {
         if(m_log_side == side::LEFT) {
             m_log.setPosition(m_log.getPosition().x + (4000 * dt.asSeconds()),
@@ -50,7 +50,7 @@ void assets::update(sf::Time& dt) {
 
         if(m_log.getPosition().x < -100 ||
            m_log.getPosition().x > 1000) {
-            std::cout << "LOG OUT OF VIEW!!\n";
+            //std::cout << "LOG OUT OF VIEW!!\n";
             m_log_active = false;
             m_log.setPosition(394, 1250);
         }
@@ -78,7 +78,7 @@ void assets::update(sf::Time& dt) {
 
 }
 
-void assets::handle_input(Player& player, Text& text, sf::Event& event) {
+void Assets::handle_input(Player& player, Text& text, sf::Event& event) {
     if(event.type == sf::Event::KeyPressed) {
         if(event.key.code == sf::Keyboard::Left && m_input && !m_log_active) {
             m_log_active = true;
@@ -100,7 +100,7 @@ void assets::handle_input(Player& player, Text& text, sf::Event& event) {
         m_input = true;
 }
 
-void assets::draw(sf::RenderWindow& window) {
+void Assets::draw(sf::RenderWindow& window) {
     window.draw(m_bg);
     for(int i = 0; i < 6; i++)   
         window.draw(m_tree_u[i]);
@@ -114,7 +114,7 @@ void assets::draw(sf::RenderWindow& window) {
         window.draw(m_log);
 }
 
-void assets::update_branches(int seed) {    
+void Assets::update_branches(int seed) {    
     // moving all branches down one
     for(int i = 6; i > 0; i--) 
         m_branch_position[i] = m_branch_position[i - 1];
@@ -124,7 +124,7 @@ void assets::update_branches(int seed) {
     srand((int)time(0) + seed);
     int r = (rand() % 15);
 
-    std::cout << r << "\n";
+    //std::cout << r << "\n";
 
 
     if(r > 0 && r <= 5) {
@@ -138,6 +138,6 @@ void assets::update_branches(int seed) {
     }
 }
 
-sf::FloatRect assets::get_branch_bounds() {
+sf::FloatRect Assets::get_branch_bounds() {
     return(m_branches[5].getGlobalBounds());
 }

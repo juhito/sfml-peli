@@ -1,27 +1,25 @@
 #include "headers/text.h"
 
 Text::Text() {
-    this->setup(5, 9, 200, sf::Vector2f(0,0));
+    this->setup(9, sf::Vector2f(0,0));
 }
 
-Text::Text(int visible, int csize, int width, sf::Vector2f pos) {
-    this->setup(visible, csize, width, pos);
+Text::Text(int csize, sf::Vector2f pos) {
+    this->setup(csize, pos);
 }
 
 Text::~Text() {
     this->clear();
 }
 
-void Text::setup(int visible, int csize, int width, sf::Vector2f pos) {
-    m_visible = visible;
-
+void Text::setup(int csize, sf::Vector2f pos) {   
     sf::Vector2f offset(2.0f, 2.0f);
 
     m_font.loadFromFile("assets/FreeMono.ttf");
     m_content.setFont(m_font);
     m_content.setString("");
     m_content.setCharacterSize(csize);
-    m_content.setColor(sf::Color::White);
+    m_content.setFillColor(sf::Color::White);
     m_content.setPosition(pos + offset);
 }
 
