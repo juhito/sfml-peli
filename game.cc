@@ -3,9 +3,10 @@
 Game::Game() : m_window("Timber", sf::Vector2u(900, 1024)) {
     m_asset.init();
     m_player.init();
-    m_text.setup(23, sf::Vector2f(150, 0));
-    m_text.add("Time Left" + std::to_string(m_time_left), 0);
-    m_text.add("Score: 0", 1);
+    m_time.setup(23, sf::Vector2f(100, 0));
+    m_score.setup(23, sf::Vector2f(100, 24));
+    m_time.add("Time Left" + std::to_string(m_time_left));
+    m_score.add("Score: 0");
     m_time_left = 8.f;
 }
 
@@ -27,13 +28,12 @@ void Game::update() {
             else
                 m_time_left -= m_elapsed.asSeconds();
             
-            m_text.add("Time Left: " + std::to_string(m_time_left), 1);
+            m_time.add("Time Left: " + std::to_string(m_time_left));
             m_elapsed -= sf::seconds(timestep);
         }
         else {
-            m_text.clear();
-            m_text.add("YOU LOST!", 0);
-            m_text.add("Score: " + std::to_string(m_player.get_score()), 1);
+            m_time.add("YOU LOST!");
+            m_score.add("Score: " + std::to_string(m_player.get_score()));
         }
     }
 }
@@ -44,7 +44,7 @@ void Game::handle_events() {
         m_window.listen_events(event);
         if(!m_player.has_lost()) {
             m_player.handle_input(event);
-            m_asset.handle_input(m_player, m_text, event);
+            m_asset.handle_input(m_player, m_score, event);
         }
         
         this->handle_input(event);
@@ -55,8 +55,9 @@ void Game::handle_input(sf::Event event) {
     // input handling
 
     if(event.type == sf::Event::KeyPressed)
-        if((event.key.code == sf::Keyboard::Left || sf::Keyboard::Right) && !m_player.has_lost())
-            m_time_left += .21f;
+        if((event.key.code == sf::Keyboard::Left || event.key.code == sf::Keyboard::Right)
+           && !m_player.has_lost())
+            m_time_left += .15f;
 }
 
 void Game::render() {
@@ -64,7 +65,8 @@ void Game::render() {
 
     m_asset.draw(*m_window.get_render_window());
     m_player.draw(*m_window.get_render_window());
-    m_text.draw(*m_window.get_render_window());
+    m_time.draw(*m_window.get_render_window());
+    m_score.draw(*m_window.get_render_window());
 
     m_window.end_draw();
 }

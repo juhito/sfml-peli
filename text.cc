@@ -23,24 +23,17 @@ void Text::setup(int csize, sf::Vector2f pos) {
     m_content.setPosition(pos + offset);
 }
 
-void Text::add(std::string message, int pos) {
-    m_messages.insert(m_messages.begin() + pos, message);
-    if(m_messages.size() < 3) return;
-    m_messages.erase(m_messages.begin());
+void Text::add(std::string message) {
+    m_string = message;
 }
 
 void Text::clear() {
-    m_messages.clear();
+    m_string = "";
 }
 
 void Text::draw(sf::RenderWindow& window) {
-    std::string content;
-
-    for(auto& itr : m_messages)
-        content.append(itr + "\n");
-
-    if(content != "") {
-        m_content.setString(content);
+    if(m_string != "") {
+        m_content.setString(m_string);
         window.draw(m_content);
     }
 }

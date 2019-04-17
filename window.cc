@@ -37,7 +37,6 @@ void Window::listen_events(sf::Event event) {
 void Window::create() {
     auto style = (m_fullscreen ? sf::Style::Fullscreen : sf::Style::Default);
     m_window.create({m_wsize.x, m_wsize.y, 32}, m_wtitle, style);
-    m_window.setVerticalSyncEnabled(true); // prevents gpu from going nuts
     
     // NOTE: Manipulate the 2d camera so it fits the screen
     // Textures will look a bit scaled now but its fine for this project.

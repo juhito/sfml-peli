@@ -41,7 +41,6 @@
 *    HEADER FILES                                                    *
 *--------------------------------------------------------------------*/
 
-#include <vector>
 #include <string>
 #include <SFML/Graphics.hpp>
 
@@ -58,16 +57,16 @@ public:
 
     void setup(int csize, sf::Vector2f pos);
 
-    void add(std::string message, int pos=0);
+    void add(std::string message);
 
     void clear();
 
     void draw(sf::RenderWindow& window);
 private:
-    std::vector<std::string> m_messages;
-    
     sf::Font m_font;
     sf::Text m_content;
+
+    std::string m_string;
 };
 
 #endif

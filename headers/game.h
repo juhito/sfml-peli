@@ -73,7 +73,8 @@ private:
     Window m_window;
     Assets m_asset;
     Player m_player;
-    Text m_text;
+    Text m_score;
+    Text m_time;
 
     sf::Texture m_texture;
     sf::Sprite m_sprite; 
