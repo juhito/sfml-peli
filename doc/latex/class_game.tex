@@ -30,7 +30,7 @@ void \hyperlink{class_game_a15ddd769261d923827a3cdf41499c843}{render} ()
 \subsection{Detailed Description}
 
 
-Definition at line 67 of file game.\+h.
+Definition at line 72 of file game.\+h.
 
 
 
@@ -47,7 +47,7 @@ Definition at line 3 of file game.\+cc.
 
 
 
-References Text\+::add(), D\+E\+F\+A\+U\+L\+T\+\_\+\+G\+A\+M\+E\+\_\+\+T\+I\+ME, Player\+::init(), Assets\+::init(), and Text\+::setup().
+References Text\+::add(), D\+E\+F\+A\+U\+L\+T\+\_\+\+G\+A\+M\+E\+\_\+\+T\+I\+ME, Player\+::init(), Assets\+::init(), Text\+::setup(), T\+E\+X\+T\+\_\+\+P\+O\+S\+\_\+X, T\+E\+X\+T\+\_\+\+P\+O\+S\+\_\+Y, and T\+E\+X\+T\+\_\+\+S\+I\+ZE.
 
 
 \begin{DoxyCode}
@@ -55,8 +55,9 @@ References Text\+::add(), D\+E\+F\+A\+U\+L\+T\+\_\+\+G\+A\+M\+E\+\_\+\+T\+I\+ME,
       \hyperlink{game_8h_a5473cf64fa979b48335079c99532e243}{WINDOW\_HEIGHT})) \{
 4     m\_asset.\hyperlink{class_assets_a1e07c9e1ddf47daf66001d887df95c7b}{init}();
 5     m\_player.\hyperlink{class_player_a015ea21fa1e7273e47d48cb20d9b12e3}{init}();
-6     m\_time.\hyperlink{class_text_afde89d05e0de0f17092b8c56e6ac77df}{setup}(23, sf::Vector2f(100, 0));
-7     m\_score.\hyperlink{class_text_afde89d05e0de0f17092b8c56e6ac77df}{setup}(23, sf::Vector2f(100, 24));
+6     m\_time.\hyperlink{class_text_afde89d05e0de0f17092b8c56e6ac77df}{setup}(\hyperlink{game_8h_afb6f36d91ffbf947cfa3f1114ca79764}{TEXT\_SIZE}, sf::Vector2f(\hyperlink{game_8h_ace9b596635b2d198b6a0e4a2c089ef0e}{TEXT\_POS\_X}, 0));
+7     m\_score.\hyperlink{class_text_afde89d05e0de0f17092b8c56e6ac77df}{setup}(\hyperlink{game_8h_afb6f36d91ffbf947cfa3f1114ca79764}{TEXT\_SIZE}, sf::Vector2f(\hyperlink{game_8h_ace9b596635b2d198b6a0e4a2c089ef0e}{TEXT\_POS\_X}, 
+      \hyperlink{game_8h_ac8da78c67c5d1d72f3136006a0e4d856}{TEXT\_POS\_Y}));
 8     m\_time.\hyperlink{class_text_ab5f6fabb3e5e029ed0e42d21757c9521}{add}(\textcolor{stringliteral}{"Time Left"} + std::to\_string(m\_time\_left));
 9     m\_score.\hyperlink{class_text_ab5f6fabb3e5e029ed0e42d21757c9521}{add}(\textcolor{stringliteral}{"Score: 0"});
 10     m\_time\_left = \hyperlink{game_8h_a0edfb2481ef7bcfb3e2e942a936a98d9}{DEFAULT\_GAME\_TIME};
