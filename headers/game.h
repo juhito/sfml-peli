@@ -64,6 +64,11 @@
 #define DEFAULT_GAME_TIME 8.0
 #define TIME_INCREMENT 0.15
 
+// text stuff
+#define TEXT_SIZE 23
+#define TEXT_POS_X 100
+#define TEXT_POS_Y 24
+
 class Game {
 public:
     
