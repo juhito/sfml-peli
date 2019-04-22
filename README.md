@@ -6,7 +6,7 @@ Simple 2D arcade style casual game. Chop wood, avoid branches, git gud. Written 
 - g++ or any other compiler with C++14 support
 - make
 - SFML >= 2.5
-- FreeMono font
+- FreeMono font (extract to assets folder)
 
 ### Compilation
 #### Linux
