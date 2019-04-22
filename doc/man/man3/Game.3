@@ -1,0 +1,287 @@
+.TH "Game" 3 "Mon Apr 22 2019" "Version 1.1" "Timberman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Game
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <game\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGame\fP ()"
+.br
+.ti -1c
+.RI "\fB~Game\fP ()"
+.br
+.ti -1c
+.RI "sf::Time \fBget_elapsed\fP ()"
+.br
+.RI "Function to get elapsed time\&. "
+.ti -1c
+.RI "void \fBrestart_clock\fP ()"
+.br
+.RI "Function to restart the clock\&. "
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.RI "Function to update game logic\&. "
+.ti -1c
+.RI "void \fBhandle_input\fP (sf::Event event)"
+.br
+.RI "Function to handle input\&. "
+.ti -1c
+.RI "void \fBhandle_events\fP ()"
+.br
+.RI "Function to poll events and handle them around\&. "
+.ti -1c
+.RI "void \fBrender\fP ()"
+.br
+.RI "Function to draw everything to the screen\&. "
+.ti -1c
+.RI "\fBWindow\fP * \fBget_window\fP ()"
+.br
+.RI "Function to get private member variable\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 67 of file game\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Game::Game ()"
+
+.PP
+Definition at line 3 of file game\&.cc\&.
+.PP
+References Text::add(), DEFAULT_GAME_TIME, Player::init(), Assets::init(), and Text::setup()\&.
+.PP
+.nf
+3            : m_window("Timber", sf::Vector2u(WINDOW_WIDTH, WINDOW_HEIGHT)) {
+4     m_asset\&.init();
+5     m_player\&.init();
+6     m_time\&.setup(23, sf::Vector2f(100, 0));
+7     m_score\&.setup(23, sf::Vector2f(100, 24));
+8     m_time\&.add("Time Left" + std::to_string(m_time_left));
+9     m_score\&.add("Score: 0");
+10     m_time_left = DEFAULT_GAME_TIME;
+11 }
+.fi
+.SS "Game::~Game ()"
+
+.PP
+Definition at line 13 of file game\&.cc\&.
+.PP
+.nf
+13 {}
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "sf::Time Game::get_elapsed ()"
+
+.PP
+Function to get elapsed time\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Elapsed time since clock restart 
+.RE
+.PP
+
+.PP
+Definition at line 78 of file game\&.cc\&.
+.PP
+.nf
+78                          {
+79     return(m_elapsed);
+80 }
+.fi
+.SS "\fBWindow\fP * Game::get_window ()"
+
+.PP
+Function to get private member variable\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Pointer to the window class 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file game\&.cc\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+74                          {
+75     return(&m_window);
+76 }
+.fi
+.SS "void Game::handle_events ()"
+
+.PP
+Function to poll events and handle them around\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file game\&.cc\&.
+.PP
+References Window::get_event(), Window::get_render_window(), Window::handle_events(), handle_input(), Player::handle_input(), Assets::handle_input(), and Player::has_lost()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+41                          {
+42     sf::Event event = m_window\&.get_event();
+43     while(m_window\&.get_render_window()->pollEvent(event)) {
+44         m_window\&.handle_events(event);
+45         if(!m_player\&.has_lost()) {
+46             m_player\&.handle_input(event);
+47             m_asset\&.handle_input(m_player, m_score, event);
+48         }
+49         
+50         this->handle_input(event);
+51     }
+52 }
+.fi
+.SS "void Game::handle_input (sf::Event event)"
+
+.PP
+Function to handle input\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP Current event to handle 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file game\&.cc\&.
+.PP
+References Player::has_lost(), and TIME_INCREMENT\&.
+.PP
+Referenced by handle_events()\&.
+.PP
+.nf
+54                                      {
+55     // input handling
+56 
+57     if(event\&.type == sf::Event::KeyPressed)
+58         if((event\&.key\&.code == sf::Keyboard::Left || event\&.key\&.code == sf::Keyboard::Right)
+59            && !m_player\&.has_lost())
+60             m_time_left += TIME_INCREMENT;
+61 }
+.fi
+.SS "void Game::render ()"
+
+.PP
+Function to draw everything to the screen\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 63 of file game\&.cc\&.
+.PP
+References Window::begin_draw(), Text::draw(), Player::draw(), Assets::draw(), Window::end_draw(), and Window::get_render_window()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+63                   {
+64     m_window\&.begin_draw();
+65 
+66     m_asset\&.draw(*m_window\&.get_render_window());
+67     m_player\&.draw(*m_window\&.get_render_window());
+68     m_time\&.draw(*m_window\&.get_render_window());
+69     m_score\&.draw(*m_window\&.get_render_window());
+70 
+71     m_window\&.end_draw();
+72 }
+.fi
+.SS "void Game::restart_clock ()"
+
+.PP
+Function to restart the clock\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file game\&.cc\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+82                          {
+83     m_elapsed += m_clock\&.restart();
+84 }
+.fi
+.SS "void Game::update ()"
+
+.PP
+Function to update game logic\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 15 of file game\&.cc\&.
+.PP
+References Text::add(), FRAMES_PER_SECOND, Player::get_score(), Window::get_window_size(), Player::has_lost(), Player::lose(), Assets::update(), and Player::update()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+15                   {
+16     sf::Vector2u wsize = m_window\&.get_window_size();
+17 
+18     float timestep = 1\&.0f / FRAMES_PER_SECOND;
+19 
+20     // 60 frames per second
+21     if(m_elapsed\&.asSeconds() >= timestep) {
+22         if(!m_player\&.has_lost()) {
+23             m_asset\&.update(m_elapsed);
+24             m_player\&.update(m_asset, m_elapsed);
+25             
+26             if(m_time_left < 0\&.01f)
+27                 m_player\&.lose();
+28             else
+29                 m_time_left -= m_elapsed\&.asSeconds();
+30             
+31             m_time\&.add("Time Left: " + std::to_string(m_time_left));
+32             m_elapsed -= sf::seconds(timestep);
+33         }
+34         else {
+35             m_time\&.add("YOU LOST!");
+36             m_score\&.add("Score: " + std::to_string(m_player\&.get_score()));
+37         }
+38     }
+39 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Timberman from the source code\&.

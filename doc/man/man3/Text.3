@@ -1,0 +1,210 @@
+.TH "Text" 3 "Mon Apr 22 2019" "Version 1.1" "Timberman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Text
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <text\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBText\fP ()"
+.br
+.ti -1c
+.RI "\fBText\fP (int csize, sf::Vector2f pos)"
+.br
+.RI "Constructor with parameters for calling the setup method\&. "
+.ti -1c
+.RI "\fB~Text\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetup\fP (int csize, sf::Vector2f pos)"
+.br
+.RI "Function to setup text class for drawing\&. "
+.ti -1c
+.RI "void \fBadd\fP (std::string message)"
+.br
+.RI "Function to change the current message\&. "
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.RI "Function to clear the current message buffer\&. "
+.ti -1c
+.RI "void \fBdraw\fP (sf::RenderWindow &window)"
+.br
+.RI "Function to draw everything to the screen\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 47 of file text\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Text::Text ()"
+
+.PP
+Definition at line 3 of file text\&.cc\&.
+.PP
+References setup()\&.
+.PP
+.nf
+3            {
+4     this->setup(9, sf::Vector2f(0,0));
+5 }
+.fi
+.SS "Text::Text (int csize, sf::Vector2f pos)"
+
+.PP
+Constructor with parameters for calling the setup method\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcsize\fP Font size 
+.br
+\fIpos\fP Font position on the window 
+.RE
+.PP
+
+.PP
+Definition at line 7 of file text\&.cc\&.
+.PP
+References setup()\&.
+.PP
+.nf
+7                                     {
+8     this->setup(csize, pos);
+9 }
+.fi
+.SS "Text::~Text ()"
+
+.PP
+Definition at line 11 of file text\&.cc\&.
+.PP
+References clear()\&.
+.PP
+.nf
+11             {
+12     this->clear();
+13 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void Text::add (std::string message)"
+
+.PP
+Function to change the current message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP Message you want to display 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file text\&.cc\&.
+.PP
+Referenced by Game::Game(), Assets::handle_input(), and Game::update()\&.
+.PP
+.nf
+26                                 {
+27     m_string = message;
+28 }
+.fi
+.SS "void Text::clear ()"
+
+.PP
+Function to clear the current message buffer\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file text\&.cc\&.
+.PP
+Referenced by ~Text()\&.
+.PP
+.nf
+30                  {
+31     m_string = "";
+32 }
+.fi
+.SS "void Text::draw (sf::RenderWindow & window)"
+
+.PP
+Function to draw everything to the screen\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwindow\fP Drawable window 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 34 of file text\&.cc\&.
+.PP
+Referenced by Game::render()\&.
+.PP
+.nf
+34                                       {
+35     if(m_string != "") {
+36         m_content\&.setString(m_string);
+37         window\&.draw(m_content);
+38     }
+39 }
+.fi
+.SS "void Text::setup (int csize, sf::Vector2f pos)"
+
+.PP
+Function to setup text class for drawing\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcsize\fP Font size 
+.br
+\fIpos\fP Position on the window 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 15 of file text\&.cc\&.
+.PP
+Referenced by Game::Game(), and Text()\&.
+.PP
+.nf
+15                                           {   
+16     sf::Vector2f offset(2\&.0f, 2\&.0f);
+17 
+18     m_font\&.loadFromFile("assets/FreeMono\&.ttf");
+19     m_content\&.setFont(m_font);
+20     m_content\&.setString("");
+21     m_content\&.setCharacterSize(csize);
+22     m_content\&.setFillColor(sf::Color::White);
+23     m_content\&.setPosition(pos + offset);
+24 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Timberman from the source code\&.

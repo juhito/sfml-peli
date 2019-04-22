@@ -1,13 +1,13 @@
 #include "headers/game.h"
 
-Game::Game() : m_window("Timber", sf::Vector2u(900, 1024)) {
+Game::Game() : m_window("Timber", sf::Vector2u(WINDOW_WIDTH, WINDOW_HEIGHT)) {
     m_asset.init();
     m_player.init();
     m_time.setup(23, sf::Vector2f(100, 0));
     m_score.setup(23, sf::Vector2f(100, 24));
     m_time.add("Time Left" + std::to_string(m_time_left));
     m_score.add("Score: 0");
-    m_time_left = 8.f;
+    m_time_left = DEFAULT_GAME_TIME;
 }
 
 Game::~Game() {}
@@ -15,7 +15,7 @@ Game::~Game() {}
 void Game::update() {
     sf::Vector2u wsize = m_window.get_window_size();
 
-    float timestep = 1.0f / 60.f;
+    float timestep = 1.0f / FRAMES_PER_SECOND;
 
     // 60 frames per second
     if(m_elapsed.asSeconds() >= timestep) {
@@ -41,7 +41,7 @@ void Game::update() {
 void Game::handle_events() {
     sf::Event event = m_window.get_event();
     while(m_window.get_render_window()->pollEvent(event)) {
-        m_window.listen_events(event);
+        m_window.handle_events(event);
         if(!m_player.has_lost()) {
             m_player.handle_input(event);
             m_asset.handle_input(m_player, m_score, event);
@@ -57,7 +57,7 @@ void Game::handle_input(sf::Event event) {
     if(event.type == sf::Event::KeyPressed)
         if((event.key.code == sf::Keyboard::Left || event.key.code == sf::Keyboard::Right)
            && !m_player.has_lost())
-            m_time_left += .15f;
+            m_time_left += TIME_INCREMENT;
 }
 
 void Game::render() {

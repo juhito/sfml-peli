@@ -1,0 +1,248 @@
+\hypertarget{class_text}{}\section{Text Class Reference}
+\label{class_text}\index{Text@{Text}}
+
+
+{\ttfamily \#include $<$text.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_text_ab3e26143fccc52699bcc5149cae852bc}{Text} ()
+\item 
+\hyperlink{class_text_acf28836e4c129f524d6dc18963ed2391}{Text} (int csize, sf\+::\+Vector2f pos)
+\begin{DoxyCompactList}\small\item\em Constructor with parameters for calling the setup method. \end{DoxyCompactList}\item 
+\hyperlink{class_text_a2d49e5c280e205125b149f7777ae30c7}{$\sim$\+Text} ()
+\item 
+void \hyperlink{class_text_afde89d05e0de0f17092b8c56e6ac77df}{setup} (int csize, sf\+::\+Vector2f pos)
+\begin{DoxyCompactList}\small\item\em Function to setup text class for drawing. \end{DoxyCompactList}\item 
+void \hyperlink{class_text_ab5f6fabb3e5e029ed0e42d21757c9521}{add} (std\+::string message)
+\begin{DoxyCompactList}\small\item\em Function to change the current message. \end{DoxyCompactList}\item 
+void \hyperlink{class_text_a7dacbbf887593bff5a5e45cde06dca71}{clear} ()
+\begin{DoxyCompactList}\small\item\em Function to clear the current message buffer. \end{DoxyCompactList}\item 
+void \hyperlink{class_text_a820f51d1ef58aa6ffadc10cc0e6ce479}{draw} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function to draw everything to the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 47 of file text.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_text_ab3e26143fccc52699bcc5149cae852bc}\label{class_text_ab3e26143fccc52699bcc5149cae852bc}} 
+\index{Text@{Text}!Text@{Text}}
+\index{Text@{Text}!Text@{Text}}
+\subsubsection{\texorpdfstring{Text()}{Text()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Text\+::\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3 of file text.\+cc.
+
+
+
+References setup().
+
+
+\begin{DoxyCode}
+3            \{
+4     this->\hyperlink{class_text_afde89d05e0de0f17092b8c56e6ac77df}{setup}(9, sf::Vector2f(0,0));
+5 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_text_acf28836e4c129f524d6dc18963ed2391}\label{class_text_acf28836e4c129f524d6dc18963ed2391}} 
+\index{Text@{Text}!Text@{Text}}
+\index{Text@{Text}!Text@{Text}}
+\subsubsection{\texorpdfstring{Text()}{Text()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Text\+::\+Text (\begin{DoxyParamCaption}\item[{int}]{csize,  }\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})}
+
+
+
+Constructor with parameters for calling the setup method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em csize} & Font size \\
+\hline
+{\em pos} & Font position on the window \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 7 of file text.\+cc.
+
+
+
+References setup().
+
+
+\begin{DoxyCode}
+7                                     \{
+8     this->\hyperlink{class_text_afde89d05e0de0f17092b8c56e6ac77df}{setup}(csize, pos);
+9 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_text_a2d49e5c280e205125b149f7777ae30c7}\label{class_text_a2d49e5c280e205125b149f7777ae30c7}} 
+\index{Text@{Text}!````~Text@{$\sim$\+Text}}
+\index{````~Text@{$\sim$\+Text}!Text@{Text}}
+\subsubsection{\texorpdfstring{$\sim$\+Text()}{~Text()}}
+{\footnotesize\ttfamily Text\+::$\sim$\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file text.\+cc.
+
+
+
+References clear().
+
+
+\begin{DoxyCode}
+11             \{
+12     this->\hyperlink{class_text_a7dacbbf887593bff5a5e45cde06dca71}{clear}();
+13 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_text_ab5f6fabb3e5e029ed0e42d21757c9521}\label{class_text_ab5f6fabb3e5e029ed0e42d21757c9521}} 
+\index{Text@{Text}!add@{add}}
+\index{add@{add}!Text@{Text}}
+\subsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void Text\+::add (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
+
+
+
+Function to change the current message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message you want to display \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file text.\+cc.
+
+
+
+Referenced by Game\+::\+Game(), Assets\+::handle\+\_\+input(), and Game\+::update().
+
+
+\begin{DoxyCode}
+26                                 \{
+27     m\_string = message;
+28 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_text_a7dacbbf887593bff5a5e45cde06dca71}\label{class_text_a7dacbbf887593bff5a5e45cde06dca71}} 
+\index{Text@{Text}!clear@{clear}}
+\index{clear@{clear}!Text@{Text}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Text\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to clear the current message buffer. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file text.\+cc.
+
+
+
+Referenced by $\sim$\+Text().
+
+
+\begin{DoxyCode}
+30                  \{
+31     m\_string = \textcolor{stringliteral}{""};
+32 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_text_a820f51d1ef58aa6ffadc10cc0e6ce479}\label{class_text_a820f51d1ef58aa6ffadc10cc0e6ce479}} 
+\index{Text@{Text}!draw@{draw}}
+\index{draw@{draw}!Text@{Text}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Text\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function to draw everything to the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Drawable window \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file text.\+cc.
+
+
+
+Referenced by Game\+::render().
+
+
+\begin{DoxyCode}
+34                                       \{
+35     \textcolor{keywordflow}{if}(m\_string != \textcolor{stringliteral}{""}) \{
+36         m\_content.setString(m\_string);
+37         window.draw(m\_content);
+38     \}
+39 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_text_afde89d05e0de0f17092b8c56e6ac77df}\label{class_text_afde89d05e0de0f17092b8c56e6ac77df}} 
+\index{Text@{Text}!setup@{setup}}
+\index{setup@{setup}!Text@{Text}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Text\+::setup (\begin{DoxyParamCaption}\item[{int}]{csize,  }\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})}
+
+
+
+Function to setup text class for drawing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em csize} & Font size \\
+\hline
+{\em pos} & Position on the window \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 15 of file text.\+cc.
+
+
+
+Referenced by Game\+::\+Game(), and Text().
+
+
+\begin{DoxyCode}
+15                                           \{   
+16     sf::Vector2f offset(2.0f, 2.0f);
+17 
+18     m\_font.loadFromFile(\textcolor{stringliteral}{"assets/FreeMono.ttf"});
+19     m\_content.setFont(m\_font);
+20     m\_content.setString(\textcolor{stringliteral}{""});
+21     m\_content.setCharacterSize(csize);
+22     m\_content.setFillColor(sf::Color::White);
+23     m\_content.setPosition(pos + offset);
+24 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{text_8h}{text.\+h}\item 
+\hyperlink{text_8cc}{text.\+cc}\end{DoxyCompactItemize}

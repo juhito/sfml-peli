@@ -1,0 +1,394 @@
+\hypertarget{class_assets}{}\section{Assets Class Reference}
+\label{class_assets}\index{Assets@{Assets}}
+
+
+{\ttfamily \#include $<$assets.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_assets_a552bf7f55194d9a4469ccc38c6938142}{Assets} ()
+\item 
+\hyperlink{class_assets_ae47d41f4f674807c271f64ffc1771b7f}{$\sim$\+Assets} ()
+\item 
+void \hyperlink{class_assets_a1e07c9e1ddf47daf66001d887df95c7b}{init} ()
+\begin{DoxyCompactList}\small\item\em Function to initializes textures and positions for this class. \end{DoxyCompactList}\item 
+void \hyperlink{class_assets_a6af3226d6a6960be5260e9edc22cf665}{update} (sf\+::\+Time \&dt)
+\begin{DoxyCompactList}\small\item\em Function to update chopped log based on it\textquotesingle{}s side and sets branch position based on it\textquotesingle{}s side. \end{DoxyCompactList}\item 
+void \hyperlink{class_assets_a760a66396019d539c1f129134e1eeaa2}{update\+\_\+branches} (int seed)
+\begin{DoxyCompactList}\small\item\em Function to update branch position on the tree. \end{DoxyCompactList}\item 
+void \hyperlink{class_assets_a22a160044158884eefe4bc93677c0211}{draw} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function to draw everything to the screen. \end{DoxyCompactList}\item 
+void \hyperlink{class_assets_aab62425b0c76418a434cccac038821c4}{handle\+\_\+input} (\hyperlink{class_player}{Player} \&player, \hyperlink{class_text}{Text} \&text, sf\+::\+Event \&event)
+\begin{DoxyCompactList}\small\item\em Function to update log, score and branches based on input. \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \hyperlink{class_assets_aac229701c6bc1d67c56a1e607658d923}{get\+\_\+branch\+\_\+bounds} ()
+\begin{DoxyCompactList}\small\item\em Function for getting bounds of the lowest branch. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 88 of file assets.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_assets_a552bf7f55194d9a4469ccc38c6938142}\label{class_assets_a552bf7f55194d9a4469ccc38c6938142}} 
+\index{Assets@{Assets}!Assets@{Assets}}
+\index{Assets@{Assets}!Assets@{Assets}}
+\subsubsection{\texorpdfstring{Assets()}{Assets()}}
+{\footnotesize\ttfamily Assets\+::\+Assets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3 of file assets.\+cc.
+
+
+\begin{DoxyCode}
+3 \{\}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_assets_ae47d41f4f674807c271f64ffc1771b7f}\label{class_assets_ae47d41f4f674807c271f64ffc1771b7f}} 
+\index{Assets@{Assets}!````~Assets@{$\sim$\+Assets}}
+\index{````~Assets@{$\sim$\+Assets}!Assets@{Assets}}
+\subsubsection{\texorpdfstring{$\sim$\+Assets()}{~Assets()}}
+{\footnotesize\ttfamily Assets\+::$\sim$\+Assets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file assets.\+cc.
+
+
+\begin{DoxyCode}
+5 \{\}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_assets_a22a160044158884eefe4bc93677c0211}\label{class_assets_a22a160044158884eefe4bc93677c0211}} 
+\index{Assets@{Assets}!draw@{draw}}
+\index{draw@{draw}!Assets@{Assets}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Assets\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function to draw everything to the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Drawable window \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 101 of file assets.\+cc.
+
+
+
+References B\+R\+A\+N\+C\+H\+\_\+\+C\+O\+U\+NT, and T\+R\+E\+E\+\_\+\+C\+O\+U\+NT.
+
+
+
+Referenced by Game\+::render().
+
+
+\begin{DoxyCode}
+101                                         \{
+102     window.draw(m\_bg);
+103     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \hyperlink{assets_8h_af9e38b40ed77ca3acf11736e89974fb1}{TREE\_COUNT}; i++)   
+104         window.draw(m\_tree\_u[i]);
+105     
+106     window.draw(m\_tree\_b);
+107 
+108     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \hyperlink{assets_8h_a21bfb121481880074762e53e6ecef7c0}{BRANCH\_COUNT}; i++)
+109         window.draw(m\_branches[i]);
+110     
+111     \textcolor{keywordflow}{if}(m\_log\_active)
+112         window.draw(m\_log);
+113 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_assets_aac229701c6bc1d67c56a1e607658d923}\label{class_assets_aac229701c6bc1d67c56a1e607658d923}} 
+\index{Assets@{Assets}!get\+\_\+branch\+\_\+bounds@{get\+\_\+branch\+\_\+bounds}}
+\index{get\+\_\+branch\+\_\+bounds@{get\+\_\+branch\+\_\+bounds}!Assets@{Assets}}
+\subsubsection{\texorpdfstring{get\+\_\+branch\+\_\+bounds()}{get\_branch\_bounds()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect Assets\+::get\+\_\+branch\+\_\+bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function for getting bounds of the lowest branch. 
+
+\begin{DoxyReturn}{Returns}
+\char`\"{}\+Rectangle\char`\"{} with global coordinates 
+\end{DoxyReturn}
+
+
+Definition at line 136 of file assets.\+cc.
+
+
+
+References B\+R\+A\+N\+C\+H\+\_\+\+C\+O\+U\+NT.
+
+
+
+Referenced by Player\+::update().
+
+
+\begin{DoxyCode}
+136                                       \{
+137     \textcolor{keywordflow}{return}(m\_branches[\hyperlink{assets_8h_a21bfb121481880074762e53e6ecef7c0}{BRANCH\_COUNT} - 1].getGlobalBounds());
+138 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_assets_aab62425b0c76418a434cccac038821c4}\label{class_assets_aab62425b0c76418a434cccac038821c4}} 
+\index{Assets@{Assets}!handle\+\_\+input@{handle\+\_\+input}}
+\index{handle\+\_\+input@{handle\+\_\+input}!Assets@{Assets}}
+\subsubsection{\texorpdfstring{handle\+\_\+input()}{handle\_input()}}
+{\footnotesize\ttfamily void Assets\+::handle\+\_\+input (\begin{DoxyParamCaption}\item[{\hyperlink{class_player}{Player} \&}]{player,  }\item[{\hyperlink{class_text}{Text} \&}]{text,  }\item[{sf\+::\+Event \&}]{event }\end{DoxyParamCaption})}
+
+
+
+Function to update log, score and branches based on input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & \hyperlink{class_player}{Player} class by reference for getting the score \\
+\hline
+{\em text} & \hyperlink{class_text}{Text} class by reference for updating score text \\
+\hline
+{\em event} & Event class by reference for getting the current event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file assets.\+cc.
+
+
+
+References Text\+::add(), Player\+::get\+\_\+score(), L\+E\+FT, R\+I\+G\+HT, and update\+\_\+branches().
+
+
+
+Referenced by Game\+::handle\+\_\+events().
+
+
+\begin{DoxyCode}
+81                                                                     \{
+82     \textcolor{keywordflow}{if}(event.type == sf::Event::KeyPressed) \{
+83         text.\hyperlink{class_text_ab5f6fabb3e5e029ed0e42d21757c9521}{add}(\textcolor{stringliteral}{"Score: "} + std::to\_string(player.\hyperlink{class_player_ad65c379a083e7c6656721616f8784059}{get\_score}()));
+84         \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::Left && m\_input && !m\_log\_active) \{
+85             m\_log\_active = \textcolor{keyword}{true};
+86             m\_log\_side = \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a684d325a7303f52e64011467ff5c5758}{side::LEFT};
+87             this->\hyperlink{class_assets_a760a66396019d539c1f129134e1eeaa2}{update\_branches}(player.\hyperlink{class_player_ad65c379a083e7c6656721616f8784059}{get\_score}());
+88         \}
+89         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::Right && m\_input && !m\_log\_active) \{
+90             m\_log\_side = \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a21507b40c80068eda19865706fdc2403}{side::RIGHT};
+91             m\_log\_active = \textcolor{keyword}{true};
+92             this->\hyperlink{class_assets_a760a66396019d539c1f129134e1eeaa2}{update\_branches}(player.\hyperlink{class_player_ad65c379a083e7c6656721616f8784059}{get\_score}());
+93         \}
+94         m\_input = \textcolor{keyword}{false};
+95     \}
+96     
+97     \textcolor{keywordflow}{if}(event.type == sf::Event::KeyReleased)
+98         m\_input = \textcolor{keyword}{true};
+99 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_assets_a1e07c9e1ddf47daf66001d887df95c7b}\label{class_assets_a1e07c9e1ddf47daf66001d887df95c7b}} 
+\index{Assets@{Assets}!init@{init}}
+\index{init@{init}!Assets@{Assets}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Assets\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to initializes textures and positions for this class. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 7 of file assets.\+cc.
+
+
+
+References L\+O\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+X, L\+O\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+Y, L\+O\+G\+\_\+\+S\+C\+A\+L\+E\+\_\+H, L\+O\+G\+\_\+\+S\+C\+A\+L\+E\+\_\+W, N\+O\+NE, O\+U\+T\+\_\+\+O\+F\+\_\+\+V\+I\+EW, T\+R\+E\+E\+\_\+\+C\+O\+U\+NT, T\+R\+E\+E\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+Y, T\+R\+E\+E\+\_\+\+P\+O\+S\+\_\+\+S\+T\+U\+MP, T\+R\+E\+E\+\_\+\+P\+O\+S\+\_\+X, and T\+R\+E\+E\+\_\+\+S\+I\+Z\+E\+\_\+\+S\+T\+U\+MP.
+
+
+
+Referenced by Game\+::\+Game().
+
+
+\begin{DoxyCode}
+7                   \{
+8     m\_bg\_t.loadFromFile(\textcolor{stringliteral}{"assets/bg.png"});
+9     m\_tree\_t.loadFromFile(\textcolor{stringliteral}{"assets/tree\_upper.png"});
+10     m\_tree\_bt.loadFromFile(\textcolor{stringliteral}{"assets/tree\_base.png"});
+11     m\_log\_t.loadFromFile(\textcolor{stringliteral}{"assets/log.png"});
+12     m\_branch\_t.loadFromFile(\textcolor{stringliteral}{"assets/branch.png"});
+13     m\_bg.setTexture(m\_bg\_t);
+14     m\_bg.setPosition(0, 0);
+15     
+16     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \hyperlink{assets_8h_af9e38b40ed77ca3acf11736e89974fb1}{TREE\_COUNT}; i++) \{
+17         m\_tree\_u[i].setTexture(m\_tree\_t);
+18 
+19         \textcolor{keywordflow}{if}(i == 0)
+20             m\_tree\_u[i].setPosition(\hyperlink{assets_8h_aea22d742dfd04dbd6c20e35656964db0}{TREE\_POS\_X}, \hyperlink{assets_8h_a3c0fe0f362183318fca02673e8945e82}{TREE\_DEFAULT\_Y});
+21         \textcolor{keywordflow}{else}
+22             m\_tree\_u[i].setPosition(\hyperlink{assets_8h_aea22d742dfd04dbd6c20e35656964db0}{TREE\_POS\_X}, m\_tree\_u[i-1].getPosition().y - 
+      \hyperlink{assets_8h_a702bae0dba0768c3ecaf00f16ac8ce24}{TREE\_SIZE\_STUMP});
+23         
+24         m\_branches[i].setTexture(m\_branch\_t);
+25         m\_branches[i].setPosition(\hyperlink{assets_8h_a42b3027df9eba88a0de54ff48374cd8a}{OUT\_OF\_VIEW}, \hyperlink{assets_8h_a42b3027df9eba88a0de54ff48374cd8a}{OUT\_OF\_VIEW});
+26         m\_branch\_position[i] = \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445ab50339a10e1de285ac99d4c3990b8693}{side::NONE};
+27     \}
+28     
+29     m\_tree\_b.setTexture(m\_tree\_bt);
+30     m\_tree\_b.setPosition(\hyperlink{assets_8h_aea22d742dfd04dbd6c20e35656964db0}{TREE\_POS\_X}, \hyperlink{assets_8h_a453c33a710126a75f7c896213cd2042f}{TREE\_POS\_STUMP});
+31 
+32     m\_log.setTexture(m\_log\_t);
+33     m\_log.setPosition(\hyperlink{assets_8h_ae6dc3cb1360c56d5ced03e209c167246}{LOG\_DEFAULT\_X}, \hyperlink{assets_8h_af03867adeb41793ca8058f77fa8fcb23}{LOG\_DEFAULT\_Y});
+34     m\_log.setScale(\{\hyperlink{assets_8h_a3dcf3ea8a02f96c3d150bea6904bac8a}{LOG\_SCALE\_W}, \hyperlink{assets_8h_afd62fd237577cea88dcbbed4d47b409d}{LOG\_SCALE\_H}\});
+35     m\_log\_active = \textcolor{keyword}{false};
+36     m\_input = \textcolor{keyword}{true};
+37 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_assets_a6af3226d6a6960be5260e9edc22cf665}\label{class_assets_a6af3226d6a6960be5260e9edc22cf665}} 
+\index{Assets@{Assets}!update@{update}}
+\index{update@{update}!Assets@{Assets}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Assets\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time \&}]{dt }\end{DoxyParamCaption})}
+
+
+
+Function to update chopped log based on it\textquotesingle{}s side and sets branch position based on it\textquotesingle{}s side. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Calculated delta time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file assets.\+cc.
+
+
+
+References B\+R\+A\+N\+C\+H\+\_\+\+O\+R\+I\+G\+I\+N\+\_\+\+L\+E\+F\+T\+\_\+X, B\+R\+A\+N\+C\+H\+\_\+\+O\+R\+I\+G\+I\+N\+\_\+\+L\+E\+F\+T\+\_\+Y, B\+R\+A\+N\+C\+H\+\_\+\+O\+R\+I\+G\+I\+N\+\_\+\+R\+I\+G\+H\+T\+\_\+X, B\+R\+A\+N\+C\+H\+\_\+\+O\+R\+I\+G\+I\+N\+\_\+\+R\+I\+G\+H\+T\+\_\+Y, B\+R\+A\+N\+C\+H\+\_\+\+P\+O\+S\+\_\+\+G\+AP, B\+R\+A\+N\+C\+H\+\_\+\+P\+O\+S\+\_\+\+L\+E\+F\+T\+\_\+X, B\+R\+A\+N\+C\+H\+\_\+\+P\+O\+S\+\_\+\+R\+I\+G\+H\+T\+\_\+X, L\+E\+FT, L\+O\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+X, L\+O\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+Y, L\+O\+G\+\_\+\+M\+A\+X\+\_\+X, L\+O\+G\+\_\+\+M\+I\+N\+\_\+X, L\+O\+G\+\_\+\+S\+P\+E\+E\+D\+\_\+X, L\+O\+G\+\_\+\+S\+P\+E\+E\+D\+\_\+Y, O\+U\+T\+\_\+\+O\+F\+\_\+\+V\+I\+EW, and R\+I\+G\+HT.
+
+
+
+Referenced by Game\+::update().
+
+
+\begin{DoxyCode}
+39                               \{
+40     \textcolor{keywordflow}{if}(m\_log\_active) \{
+41         \textcolor{keywordflow}{if}(m\_log\_side == \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a684d325a7303f52e64011467ff5c5758}{side::LEFT}) \{
+42             \textcolor{comment}{// if log side is left, shoot to right}
+43             m\_log.setPosition(m\_log.getPosition().x + (\hyperlink{assets_8h_aa54f2f4f3c4c2ef6118b0aee2d30b7a9}{LOG\_SPEED\_X} * dt.asSeconds()),
+44                               m\_log.getPosition().y + (\hyperlink{assets_8h_a963e90795637e85827a228a1ae13a979}{LOG\_SPEED\_Y} * dt.asSeconds()));
+45         \}
+46         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(m\_log\_side == \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a21507b40c80068eda19865706fdc2403}{side::RIGHT}) \{
+47             \textcolor{comment}{// if log side is right, shoot to left}
+48             m\_log.setPosition(m\_log.getPosition().x + (-\hyperlink{assets_8h_aa54f2f4f3c4c2ef6118b0aee2d30b7a9}{LOG\_SPEED\_X} * dt.asSeconds()),
+49                               m\_log.getPosition().y + (\hyperlink{assets_8h_a963e90795637e85827a228a1ae13a979}{LOG\_SPEED\_Y} * dt.asSeconds()));
+50         \}
+51 
+52         \textcolor{keywordflow}{if}(m\_log.getPosition().x < \hyperlink{assets_8h_a893416b56a26dbf242ba94aa8e29077f}{LOG\_MIN\_X} ||
+53            m\_log.getPosition().x > \hyperlink{assets_8h_aa41153c35d59d767853cf191f94cb4aa}{LOG\_MAX\_X}) \{
+54             \textcolor{comment}{// log gets out of view, reset to default}
+55             m\_log\_active = \textcolor{keyword}{false};
+56             m\_log.setPosition(\hyperlink{assets_8h_ae6dc3cb1360c56d5ced03e209c167246}{LOG\_DEFAULT\_X}, \hyperlink{assets_8h_af03867adeb41793ca8058f77fa8fcb23}{LOG\_DEFAULT\_Y});
+57         \}
+58     \}
+59     
+60     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 6; i++) \{
+61         \textcolor{keywordtype}{float} height = i * \hyperlink{assets_8h_a42e8c152dd776e62a74ad4d3b13e997e}{BRANCH\_POS\_GAP};
+62 
+63         \textcolor{keywordflow}{if}(m\_branch\_position[i] == \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a684d325a7303f52e64011467ff5c5758}{side::LEFT}) \{
+64             \textcolor{comment}{// move the sprite to left}
+65             m\_branches[i].setPosition(\hyperlink{assets_8h_ae1c4957dbb3e0737cfa720e0249af5cb}{BRANCH\_POS\_LEFT\_X}, height);
+66             m\_branches[i].setOrigin(\hyperlink{assets_8h_a0f5789c7cbfdbb77c53106eba31742ca}{BRANCH\_ORIGIN\_LEFT\_X}, 
+      \hyperlink{assets_8h_a09312af5ad4d9c74a8b09aaaea07e733}{BRANCH\_ORIGIN\_LEFT\_Y});
+67             m\_branches[i].setRotation(0);
+68         \}
+69         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(m\_branch\_position[i] == \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a21507b40c80068eda19865706fdc2403}{side::RIGHT}) \{
+70             \textcolor{comment}{// move the sprite to right}
+71             m\_branches[i].setPosition(\hyperlink{assets_8h_a7e1f655f0634e82d9007b79d99fb4ad7}{BRANCH\_POS\_RIGHT\_X}, height);
+72 
+73             m\_branches[i].setOrigin(\hyperlink{assets_8h_a8221d61633fb61c05bcaa12c4a690399}{BRANCH\_ORIGIN\_RIGHT\_X}, 
+      \hyperlink{assets_8h_a787097203a7dc54361d705bf1a435568}{BRANCH\_ORIGIN\_RIGHT\_Y});
+74             m\_branches[i].setRotation(180);
+75         \}
+76         \textcolor{keywordflow}{else}
+77             m\_branches[i].setPosition(\hyperlink{assets_8h_a42b3027df9eba88a0de54ff48374cd8a}{OUT\_OF\_VIEW}, height); \textcolor{comment}{// if side::none, set out of view}
+78     \}
+79 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_assets_a760a66396019d539c1f129134e1eeaa2}\label{class_assets_a760a66396019d539c1f129134e1eeaa2}} 
+\index{Assets@{Assets}!update\+\_\+branches@{update\+\_\+branches}}
+\index{update\+\_\+branches@{update\+\_\+branches}!Assets@{Assets}}
+\subsubsection{\texorpdfstring{update\+\_\+branches()}{update\_branches()}}
+{\footnotesize\ttfamily void Assets\+::update\+\_\+branches (\begin{DoxyParamCaption}\item[{int}]{seed }\end{DoxyParamCaption})}
+
+
+
+Function to update branch position on the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seed} & Integer number for seeding (player\textquotesingle{}s score) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file assets.\+cc.
+
+
+
+References B\+R\+A\+N\+C\+H\+\_\+\+C\+O\+U\+NT, L\+E\+FT, N\+O\+NE, and R\+I\+G\+HT.
+
+
+
+Referenced by handle\+\_\+input().
+
+
+\begin{DoxyCode}
+115                                      \{    
+116     \textcolor{comment}{// moving all branches down one}
+117     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = \hyperlink{assets_8h_a21bfb121481880074762e53e6ecef7c0}{BRANCH\_COUNT}; i > 0; i--) 
+118         m\_branch\_position[i] = m\_branch\_position[i - 1];
+119 
+120     \textcolor{comment}{// spawn a new branch at position 0}
+121     \textcolor{comment}{// left right or none}
+122     srand((\textcolor{keywordtype}{int})time(0) + seed);
+123     \textcolor{keywordtype}{int} r = (rand() % 15);
+124 
+125     \textcolor{keywordflow}{if}(r > 0 && r <= 5) \{
+126         m\_branch\_position[0] = \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a684d325a7303f52e64011467ff5c5758}{side::LEFT};
+127     \}
+128     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(r > 5 && r <= 10) \{
+129         m\_branch\_position[0] = \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a21507b40c80068eda19865706fdc2403}{side::RIGHT};
+130     \}
+131     \textcolor{keywordflow}{else} \{
+132         m\_branch\_position[0] = \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445ab50339a10e1de285ac99d4c3990b8693}{side::NONE};
+133     \}
+134 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{assets_8h}{assets.\+h}\item 
+\hyperlink{assets_8cc}{assets.\+cc}\end{DoxyCompactItemize}

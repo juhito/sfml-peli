@@ -1,2 +1,7 @@
 <map id="game.cc" name="game.cc">
+<area shape="rect" id="node2" href="$game_8h.html" title="headers/game.h" alt="" coords="136,80,251,107"/>
+<area shape="rect" id="node4" href="$window_8h.html" title="window.h" alt="" coords="5,155,83,181"/>
+<area shape="rect" id="node5" href="$assets_8h.html" title="assets.h" alt="" coords="157,155,229,181"/>
+<area shape="rect" id="node6" href="$player_8h.html" title="player.h" alt="" coords="107,229,175,256"/>
+<area shape="rect" id="node7" href="$text_8h.html" title="text.h" alt="" coords="305,229,359,256"/>
 </map>

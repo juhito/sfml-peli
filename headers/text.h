@@ -52,15 +52,47 @@ public:
 *--------------------------------------------------------------------*/
     
     Text();
+
+    /**
+     * \fn Text(int csize, sf::Vector2f pos)
+     * \brief Constructor with parameters for calling the setup method
+     * \param csize Font size
+     * \param pos Font position on the window
+     */
     Text(int csize, sf::Vector2f pos);
+    
     ~Text();
 
+    /**
+     * \fn void setup(int csize, sf::Vector2f pos)
+     * \brief Function to setup text class for drawing
+     * \param csize Font size
+     * \param pos Position on the window
+     * \return void
+     */
     void setup(int csize, sf::Vector2f pos);
 
+    /**
+     * \fn void add(const std::string& message)
+     * \brief Function to change the current message
+     * \param message Message you want to display
+     * \return void
+     */
     void add(std::string message);
 
+    /**
+     * \fn void clear()
+     * \brief Function to clear the current message buffer
+     * \return void
+     */
     void clear();
 
+    /**
+     * \fn void draw(sf::RenderWindow& window)
+     * \brief Function to draw everything to the screen
+     * \param window Drawable window
+     * \return void
+     */
     void draw(sf::RenderWindow& window);
 private:
     sf::Font m_font;

@@ -1,0 +1,255 @@
+.TH "headers/assets.h" 3 "Mon Apr 22 2019" "Version 1.1" "Timberman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+headers/assets.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <SFML/Graphics\&.hpp>\fP
+.br
+\fC#include 'player\&.h'\fP
+.br
+\fC#include 'text\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBAssets\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTREE_COUNT\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTREE_POS_X\fP   50"
+.br
+.ti -1c
+.RI "#define \fBTREE_POS_STUMP\fP   1100"
+.br
+.ti -1c
+.RI "#define \fBTREE_SIZE_STUMP\fP   200"
+.br
+.ti -1c
+.RI "#define \fBTREE_DEFAULT_Y\fP   900"
+.br
+.ti -1c
+.RI "#define \fBLOG_DEFAULT_X\fP   394"
+.br
+.ti -1c
+.RI "#define \fBLOG_DEFAULT_Y\fP   1250"
+.br
+.ti -1c
+.RI "#define \fBLOG_SCALE_W\fP   \&.56"
+.br
+.ti -1c
+.RI "#define \fBLOG_SCALE_H\fP   \&.56"
+.br
+.ti -1c
+.RI "#define \fBLOG_MIN_X\fP   \-100"
+.br
+.ti -1c
+.RI "#define \fBLOG_MAX_X\fP   1000"
+.br
+.ti -1c
+.RI "#define \fBLOG_SPEED_X\fP   4000"
+.br
+.ti -1c
+.RI "#define \fBLOG_SPEED_Y\fP   \-2500"
+.br
+.ti -1c
+.RI "#define \fBBRANCH_COUNT\fP   6"
+.br
+.ti -1c
+.RI "#define \fBBRANCH_ORIGIN_LEFT_X\fP   300"
+.br
+.ti -1c
+.RI "#define \fBBRANCH_ORIGIN_LEFT_Y\fP   40"
+.br
+.ti -1c
+.RI "#define \fBBRANCH_ORIGIN_RIGHT_X\fP   400"
+.br
+.ti -1c
+.RI "#define \fBBRANCH_ORIGIN_RIGHT_Y\fP   170"
+.br
+.ti -1c
+.RI "#define \fBBRANCH_POS_LEFT_X\fP   360"
+.br
+.ti -1c
+.RI "#define \fBBRANCH_POS_RIGHT_X\fP   470"
+.br
+.ti -1c
+.RI "#define \fBBRANCH_POS_GAP\fP   200"
+.br
+.ti -1c
+.RI "#define \fBOUT_OF_VIEW\fP   4000"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBside\fP { \fBside::LEFT\fP, \fBside::RIGHT\fP, \fBside::NONE\fP }"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define BRANCH_COUNT   6"
+
+.PP
+Definition at line 73 of file assets\&.h\&.
+.PP
+Referenced by Assets::draw(), Assets::get_branch_bounds(), and Assets::update_branches()\&.
+.SS "#define BRANCH_ORIGIN_LEFT_X   300"
+
+.PP
+Definition at line 74 of file assets\&.h\&.
+.PP
+Referenced by Assets::update()\&.
+.SS "#define BRANCH_ORIGIN_LEFT_Y   40"
+
+.PP
+Definition at line 75 of file assets\&.h\&.
+.PP
+Referenced by Assets::update()\&.
+.SS "#define BRANCH_ORIGIN_RIGHT_X   400"
+
+.PP
+Definition at line 76 of file assets\&.h\&.
+.PP
+Referenced by Assets::update()\&.
+.SS "#define BRANCH_ORIGIN_RIGHT_Y   170"
+
+.PP
+Definition at line 77 of file assets\&.h\&.
+.PP
+Referenced by Assets::update()\&.
+.SS "#define BRANCH_POS_GAP   200"
+
+.PP
+Definition at line 80 of file assets\&.h\&.
+.PP
+Referenced by Assets::update()\&.
+.SS "#define BRANCH_POS_LEFT_X   360"
+
+.PP
+Definition at line 78 of file assets\&.h\&.
+.PP
+Referenced by Assets::update()\&.
+.SS "#define BRANCH_POS_RIGHT_X   470"
+
+.PP
+Definition at line 79 of file assets\&.h\&.
+.PP
+Referenced by Assets::update()\&.
+.SS "#define LOG_DEFAULT_X   394"
+
+.PP
+Definition at line 63 of file assets\&.h\&.
+.PP
+Referenced by Assets::init(), and Assets::update()\&.
+.SS "#define LOG_DEFAULT_Y   1250"
+
+.PP
+Definition at line 64 of file assets\&.h\&.
+.PP
+Referenced by Assets::init(), and Assets::update()\&.
+.SS "#define LOG_MAX_X   1000"
+
+.PP
+Definition at line 68 of file assets\&.h\&.
+.PP
+Referenced by Assets::update()\&.
+.SS "#define LOG_MIN_X   \-100"
+
+.PP
+Definition at line 67 of file assets\&.h\&.
+.PP
+Referenced by Assets::update()\&.
+.SS "#define LOG_SCALE_H   \&.56"
+
+.PP
+Definition at line 66 of file assets\&.h\&.
+.PP
+Referenced by Assets::init()\&.
+.SS "#define LOG_SCALE_W   \&.56"
+
+.PP
+Definition at line 65 of file assets\&.h\&.
+.PP
+Referenced by Assets::init()\&.
+.SS "#define LOG_SPEED_X   4000"
+
+.PP
+Definition at line 69 of file assets\&.h\&.
+.PP
+Referenced by Assets::update()\&.
+.SS "#define LOG_SPEED_Y   \-2500"
+
+.PP
+Definition at line 70 of file assets\&.h\&.
+.PP
+Referenced by Assets::update()\&.
+.SS "#define OUT_OF_VIEW   4000"
+
+.PP
+Definition at line 83 of file assets\&.h\&.
+.PP
+Referenced by Assets::init(), and Assets::update()\&.
+.SS "#define TREE_COUNT   6"
+
+.PP
+Definition at line 56 of file assets\&.h\&.
+.PP
+Referenced by Assets::draw(), and Assets::init()\&.
+.SS "#define TREE_DEFAULT_Y   900"
+
+.PP
+Definition at line 60 of file assets\&.h\&.
+.PP
+Referenced by Assets::init()\&.
+.SS "#define TREE_POS_STUMP   1100"
+
+.PP
+Definition at line 58 of file assets\&.h\&.
+.PP
+Referenced by Assets::init()\&.
+.SS "#define TREE_POS_X   50"
+
+.PP
+Definition at line 57 of file assets\&.h\&.
+.PP
+Referenced by Assets::init()\&.
+.SS "#define TREE_SIZE_STUMP   200"
+
+.PP
+Definition at line 59 of file assets\&.h\&.
+.PP
+Referenced by Assets::init()\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBside\fP\fC [strong]\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILEFT \fP\fP
+.TP
+\fB\fIRIGHT \fP\fP
+.TP
+\fB\fINONE \fP\fP
+.PP
+Definition at line 85 of file assets\&.h\&.
+.PP
+.nf
+85 { LEFT, RIGHT, NONE };
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Timberman from the source code\&.

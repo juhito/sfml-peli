@@ -1,0 +1,344 @@
+.TH "Player" 3 "Mon Apr 22 2019" "Version 1.1" "Timberman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Player
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <player\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlayer\fP ()"
+.br
+.ti -1c
+.RI "\fB~Player\fP ()"
+.br
+.ti -1c
+.RI "void \fBinit\fP ()"
+.br
+.RI "Function to init textures and positions for this class\&. "
+.ti -1c
+.RI "int \fBget_score\fP ()"
+.br
+.RI "Function to get player's score\&. "
+.ti -1c
+.RI "\fBside\fP \fBget_side\fP ()"
+.br
+.RI "Function to get player's side\&. "
+.ti -1c
+.RI "void \fBincrement_score\fP ()"
+.br
+.RI "Function to increment player's score\&. "
+.ti -1c
+.RI "void \fBlose\fP ()"
+.br
+.RI "Function to make player lose\&. "
+.ti -1c
+.RI "bool \fBhas_lost\fP ()"
+.br
+.RI "Function to check if you've lost\&. "
+.ti -1c
+.RI "void \fBdraw\fP (sf::RenderWindow &window)"
+.br
+.RI "Function to draw everything to screen\&. "
+.ti -1c
+.RI "void \fBupdate\fP (\fBAssets\fP &asset, sf::Time &dt)"
+.br
+.RI "Function to animate player and check if you've lost\&. "
+.ti -1c
+.RI "void \fBhandle_input\fP (sf::Event &event)"
+.br
+.RI "Function to handle player input\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 63 of file player\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Player::Player ()"
+
+.PP
+Definition at line 3 of file player\&.cc\&.
+.PP
+.nf
+3 {}
+.fi
+.SS "Player::~Player ()"
+
+.PP
+Definition at line 5 of file player\&.cc\&.
+.PP
+.nf
+5 {}
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void Player::draw (sf::RenderWindow & window)"
+
+.PP
+Function to draw everything to screen\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwindow\fP Drawable window 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file player\&.cc\&.
+.PP
+Referenced by Game::render()\&.
+.PP
+.nf
+89                                         {
+90     window\&.draw(m_sprite);
+91 }
+.fi
+.SS "int Player::get_score ()"
+
+.PP
+Function to get player's score\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+current score 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file player\&.cc\&.
+.PP
+Referenced by Assets::handle_input(), and Game::update()\&.
+.PP
+.nf
+21                       {
+22     return(m_score);
+23 }
+.fi
+.SS "\fBside\fP Player::get_side ()"
+
+.PP
+Function to get player's side\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+player's side which is an enum 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file player\&.cc\&.
+.PP
+.nf
+25                       {
+26     return(m_side);
+27 }
+.fi
+.SS "void Player::handle_input (sf::Event & event)"
+
+.PP
+Function to handle player input\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP Event class by reference for getting the current event 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file player\&.cc\&.
+.PP
+References increment_score(), LEFT, PLAYER_ORIGIN_RX, PLAYER_POS_LX, PLAYER_POS_RX, PLAYER_POS_Y, and RIGHT\&.
+.PP
+Referenced by Game::handle_events()\&.
+.PP
+.nf
+41                                         {
+42     if(event\&.type == sf::Event::KeyPressed) {
+43         if(event\&.key\&.code == sf::Keyboard::Left && m_input) {
+44             m_side = side::LEFT;
+45             this->increment_score();               
+46             if(m_side == side::LEFT) {
+47                 m_sprite\&.setTexture(m_anim);
+48                 m_sprite\&.setScale(1\&.f, 1\&.f); // change orientation to normal
+49                 m_sprite\&.setOrigin(0, 0);
+50                 m_sprite\&.setPosition(PLAYER_POS_LX, PLAYER_POS_Y);
+51             }
+52         }
+53         else if(event\&.key\&.code == sf::Keyboard::Right && m_input) {
+54             m_side = side::RIGHT;
+55             this->increment_score();
+56             if(m_side == side::RIGHT) {
+57                 m_sprite\&.setTexture(m_anim);
+58                 m_sprite\&.setScale(-1\&.f, 1\&.f); // change orientation
+59                 m_sprite\&.setOrigin(PLAYER_ORIGIN_RX, 0);
+60                 m_sprite\&.setPosition(PLAYER_POS_RX, PLAYER_POS_Y);
+61             }
+62         }
+63         m_input = false;
+64     }
+65 
+66     if(event\&.type == sf::Event::KeyReleased)
+67         m_input = true;
+68 }
+.fi
+.SS "bool Player::has_lost ()"
+
+.PP
+Function to check if you've lost\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+true if lost, false otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file player\&.cc\&.
+.PP
+Referenced by Game::handle_events(), Game::handle_input(), and Game::update()\&.
+.PP
+.nf
+37                       {
+38     return(m_lost);
+39 }
+.fi
+.SS "void Player::increment_score ()"
+
+.PP
+Function to increment player's score\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file player\&.cc\&.
+.PP
+Referenced by handle_input()\&.
+.PP
+.nf
+29                              {
+30     m_score++;
+31 }
+.fi
+.SS "void Player::init ()"
+
+.PP
+Function to init textures and positions for this class\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 7 of file player\&.cc\&.
+.PP
+References LEFT, PLAYER_POS_LX, and PLAYER_POS_Y\&.
+.PP
+Referenced by Game::Game()\&.
+.PP
+.nf
+7                   {
+8     m_texture\&.loadFromFile("assets/tm\&.png");
+9     m_texture\&.setSmooth(true);
+10     m_anim\&.loadFromFile("assets/tm2\&.png");
+11     m_anim\&.setSmooth(true);
+12     m_sprite\&.setTexture(m_texture);
+13     m_sprite\&.setPosition(PLAYER_POS_LX, PLAYER_POS_Y);
+14     m_side = side::LEFT;
+15     m_score = 0;
+16     m_lost = false;
+17     m_duration = 0;
+18     m_input = true;
+19 }
+.fi
+.SS "void Player::lose ()"
+
+.PP
+Function to make player lose\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 33 of file player\&.cc\&.
+.PP
+Referenced by Game::update(), and update()\&.
+.PP
+.nf
+33                   {
+34     m_lost = true;
+35 }
+.fi
+.SS "void Player::update (\fBAssets\fP & asset, sf::Time & dt)"
+
+.PP
+Function to animate player and check if you've lost\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIasset\fP For getting bounds of the last branch 
+.br
+\fIdt\fP Calculated delta time 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 70 of file player\&.cc\&.
+.PP
+References Assets::get_branch_bounds(), lose(), and NONE\&.
+.PP
+Referenced by Game::update()\&.
+.PP
+.nf
+70                                              {
+71     /*
+72      * NOTE:
+73      * The implementation of animating is awful but it was probably /
+74      * the only way of doing this without creating a whole animation manager system\&.
+75      */
+76     if(m_side != side::NONE) {
+77         m_duration += dt\&.asSeconds();
+78         if(m_duration > 0\&.2f) {
+79             m_duration = 0;
+80             m_sprite\&.setTexture(m_texture);
+81         }
+82     }
+83     
+84     if(m_sprite\&.getGlobalBounds()\&.intersects(asset\&.get_branch_bounds())) {
+85         this->lose();
+86     }
+87 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Timberman from the source code\&.

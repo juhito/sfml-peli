@@ -1,0 +1,336 @@
+\hypertarget{class_game}{}\section{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+
+
+{\ttfamily \#include $<$game.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game} ()
+\item 
+\hyperlink{class_game_ae3d112ca6e0e55150d2fdbc704474530}{$\sim$\+Game} ()
+\item 
+sf\+::\+Time \hyperlink{class_game_a4924f7fafddc76b267d1dc9138fa07d0}{get\+\_\+elapsed} ()
+\begin{DoxyCompactList}\small\item\em Function to get elapsed time. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_a528bf1006e9dfed3b51d9aae79f8c287}{restart\+\_\+clock} ()
+\begin{DoxyCompactList}\small\item\em Function to restart the clock. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_a79df6376b332d63c9eca0dcee30305c3}{update} ()
+\begin{DoxyCompactList}\small\item\em Function to update game logic. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_af7895911bb1509fbb33cc1b979c852b8}{handle\+\_\+input} (sf\+::\+Event event)
+\begin{DoxyCompactList}\small\item\em Function to handle input. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_a698430daa658033e7746e3a161a859a9}{handle\+\_\+events} ()
+\begin{DoxyCompactList}\small\item\em Function to poll events and handle them around. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_a15ddd769261d923827a3cdf41499c843}{render} ()
+\begin{DoxyCompactList}\small\item\em Function to draw everything to the screen. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} $\ast$ \hyperlink{class_game_ada27344ddafc8489f4d6ab5ec6cd9a8e}{get\+\_\+window} ()
+\begin{DoxyCompactList}\small\item\em Function to get private member variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 67 of file game.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_ad59df6562a58a614fda24622d3715b65}\label{class_game_ad59df6562a58a614fda24622d3715b65}} 
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\subsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3 of file game.\+cc.
+
+
+
+References Text\+::add(), D\+E\+F\+A\+U\+L\+T\+\_\+\+G\+A\+M\+E\+\_\+\+T\+I\+ME, Player\+::init(), Assets\+::init(), and Text\+::setup().
+
+
+\begin{DoxyCode}
+3            : m\_window(\textcolor{stringliteral}{"Timber"}, sf::Vector2u(\hyperlink{game_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\_WIDTH}, 
+      \hyperlink{game_8h_a5473cf64fa979b48335079c99532e243}{WINDOW\_HEIGHT})) \{
+4     m\_asset.\hyperlink{class_assets_a1e07c9e1ddf47daf66001d887df95c7b}{init}();
+5     m\_player.\hyperlink{class_player_a015ea21fa1e7273e47d48cb20d9b12e3}{init}();
+6     m\_time.\hyperlink{class_text_afde89d05e0de0f17092b8c56e6ac77df}{setup}(23, sf::Vector2f(100, 0));
+7     m\_score.\hyperlink{class_text_afde89d05e0de0f17092b8c56e6ac77df}{setup}(23, sf::Vector2f(100, 24));
+8     m\_time.\hyperlink{class_text_ab5f6fabb3e5e029ed0e42d21757c9521}{add}(\textcolor{stringliteral}{"Time Left"} + std::to\_string(m\_time\_left));
+9     m\_score.\hyperlink{class_text_ab5f6fabb3e5e029ed0e42d21757c9521}{add}(\textcolor{stringliteral}{"Score: 0"});
+10     m\_time\_left = \hyperlink{game_8h_a0edfb2481ef7bcfb3e2e942a936a98d9}{DEFAULT\_GAME\_TIME};
+11 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_ae3d112ca6e0e55150d2fdbc704474530}\label{class_game_ae3d112ca6e0e55150d2fdbc704474530}} 
+\index{Game@{Game}!````~Game@{$\sim$\+Game}}
+\index{````~Game@{$\sim$\+Game}!Game@{Game}}
+\subsubsection{\texorpdfstring{$\sim$\+Game()}{~Game()}}
+{\footnotesize\ttfamily Game\+::$\sim$\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file game.\+cc.
+
+
+\begin{DoxyCode}
+13 \{\}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_a4924f7fafddc76b267d1dc9138fa07d0}\label{class_game_a4924f7fafddc76b267d1dc9138fa07d0}} 
+\index{Game@{Game}!get\+\_\+elapsed@{get\+\_\+elapsed}}
+\index{get\+\_\+elapsed@{get\+\_\+elapsed}!Game@{Game}}
+\subsubsection{\texorpdfstring{get\+\_\+elapsed()}{get\_elapsed()}}
+{\footnotesize\ttfamily sf\+::\+Time Game\+::get\+\_\+elapsed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get elapsed time. 
+
+\begin{DoxyReturn}{Returns}
+Elapsed time since clock restart 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file game.\+cc.
+
+
+\begin{DoxyCode}
+78                          \{
+79     \textcolor{keywordflow}{return}(m\_elapsed);
+80 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_ada27344ddafc8489f4d6ab5ec6cd9a8e}\label{class_game_ada27344ddafc8489f4d6ab5ec6cd9a8e}} 
+\index{Game@{Game}!get\+\_\+window@{get\+\_\+window}}
+\index{get\+\_\+window@{get\+\_\+window}!Game@{Game}}
+\subsubsection{\texorpdfstring{get\+\_\+window()}{get\_window()}}
+{\footnotesize\ttfamily \hyperlink{class_window}{Window} $\ast$ Game\+::get\+\_\+window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get private member variable. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the window class 
+\end{DoxyReturn}
+
+
+Definition at line 74 of file game.\+cc.
+
+
+
+Referenced by main().
+
+
+\begin{DoxyCode}
+74                          \{
+75     \textcolor{keywordflow}{return}(&m\_window);
+76 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a698430daa658033e7746e3a161a859a9}\label{class_game_a698430daa658033e7746e3a161a859a9}} 
+\index{Game@{Game}!handle\+\_\+events@{handle\+\_\+events}}
+\index{handle\+\_\+events@{handle\+\_\+events}!Game@{Game}}
+\subsubsection{\texorpdfstring{handle\+\_\+events()}{handle\_events()}}
+{\footnotesize\ttfamily void Game\+::handle\+\_\+events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to poll events and handle them around. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file game.\+cc.
+
+
+
+References Window\+::get\+\_\+event(), Window\+::get\+\_\+render\+\_\+window(), Window\+::handle\+\_\+events(), handle\+\_\+input(), Player\+::handle\+\_\+input(), Assets\+::handle\+\_\+input(), and Player\+::has\+\_\+lost().
+
+
+
+Referenced by main().
+
+
+\begin{DoxyCode}
+41                          \{
+42     sf::Event \textcolor{keyword}{event} = m\_window.\hyperlink{class_window_a878ba53cecdd324dd80274caa0c98a7c}{get\_event}();
+43     \textcolor{keywordflow}{while}(m\_window.\hyperlink{class_window_ae921197766adfddd372dcc40879f8b45}{get\_render\_window}()->pollEvent(event)) \{
+44         m\_window.\hyperlink{class_window_ae7c221f904b304e507339e6e25ccd018}{handle\_events}(event);
+45         \textcolor{keywordflow}{if}(!m\_player.\hyperlink{class_player_a734ead9fd1aa89c2574310425da18dc7}{has\_lost}()) \{
+46             m\_player.\hyperlink{class_player_a2a56f0d2037a44c56934c4faac06f54d}{handle\_input}(event);
+47             m\_asset.\hyperlink{class_assets_aab62425b0c76418a434cccac038821c4}{handle\_input}(m\_player, m\_score, event);
+48         \}
+49         
+50         this->\hyperlink{class_game_af7895911bb1509fbb33cc1b979c852b8}{handle\_input}(event);
+51     \}
+52 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_af7895911bb1509fbb33cc1b979c852b8}\label{class_game_af7895911bb1509fbb33cc1b979c852b8}} 
+\index{Game@{Game}!handle\+\_\+input@{handle\+\_\+input}}
+\index{handle\+\_\+input@{handle\+\_\+input}!Game@{Game}}
+\subsubsection{\texorpdfstring{handle\+\_\+input()}{handle\_input()}}
+{\footnotesize\ttfamily void Game\+::handle\+\_\+input (\begin{DoxyParamCaption}\item[{sf\+::\+Event}]{event }\end{DoxyParamCaption})}
+
+
+
+Function to handle input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Current event to handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file game.\+cc.
+
+
+
+References Player\+::has\+\_\+lost(), and T\+I\+M\+E\+\_\+\+I\+N\+C\+R\+E\+M\+E\+NT.
+
+
+
+Referenced by handle\+\_\+events().
+
+
+\begin{DoxyCode}
+54                                      \{
+55     \textcolor{comment}{// input handling}
+56 
+57     \textcolor{keywordflow}{if}(event.type == sf::Event::KeyPressed)
+58         \textcolor{keywordflow}{if}((event.key.code == sf::Keyboard::Left || event.key.code == sf::Keyboard::Right)
+59            && !m\_player.\hyperlink{class_player_a734ead9fd1aa89c2574310425da18dc7}{has\_lost}())
+60             m\_time\_left += \hyperlink{game_8h_ad29ebde3c8bd7568e2e1e7d32bf7a3f3}{TIME\_INCREMENT};
+61 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a15ddd769261d923827a3cdf41499c843}\label{class_game_a15ddd769261d923827a3cdf41499c843}} 
+\index{Game@{Game}!render@{render}}
+\index{render@{render}!Game@{Game}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Game\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to draw everything to the screen. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 63 of file game.\+cc.
+
+
+
+References Window\+::begin\+\_\+draw(), Text\+::draw(), Player\+::draw(), Assets\+::draw(), Window\+::end\+\_\+draw(), and Window\+::get\+\_\+render\+\_\+window().
+
+
+
+Referenced by main().
+
+
+\begin{DoxyCode}
+63                   \{
+64     m\_window.\hyperlink{class_window_a9a01adf499565557def564579805c413}{begin\_draw}();
+65 
+66     m\_asset.\hyperlink{class_assets_a22a160044158884eefe4bc93677c0211}{draw}(*m\_window.\hyperlink{class_window_ae921197766adfddd372dcc40879f8b45}{get\_render\_window}());
+67     m\_player.\hyperlink{class_player_a70bbe0afb8ef88207288c9134ae80b6e}{draw}(*m\_window.\hyperlink{class_window_ae921197766adfddd372dcc40879f8b45}{get\_render\_window}());
+68     m\_time.\hyperlink{class_text_a820f51d1ef58aa6ffadc10cc0e6ce479}{draw}(*m\_window.\hyperlink{class_window_ae921197766adfddd372dcc40879f8b45}{get\_render\_window}());
+69     m\_score.\hyperlink{class_text_a820f51d1ef58aa6ffadc10cc0e6ce479}{draw}(*m\_window.\hyperlink{class_window_ae921197766adfddd372dcc40879f8b45}{get\_render\_window}());
+70 
+71     m\_window.\hyperlink{class_window_ae2d4995568b0bb68fd8dceff3cce216c}{end\_draw}();
+72 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a528bf1006e9dfed3b51d9aae79f8c287}\label{class_game_a528bf1006e9dfed3b51d9aae79f8c287}} 
+\index{Game@{Game}!restart\+\_\+clock@{restart\+\_\+clock}}
+\index{restart\+\_\+clock@{restart\+\_\+clock}!Game@{Game}}
+\subsubsection{\texorpdfstring{restart\+\_\+clock()}{restart\_clock()}}
+{\footnotesize\ttfamily void Game\+::restart\+\_\+clock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to restart the clock. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file game.\+cc.
+
+
+
+Referenced by main().
+
+
+\begin{DoxyCode}
+82                          \{
+83     m\_elapsed += m\_clock.restart();
+84 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a79df6376b332d63c9eca0dcee30305c3}\label{class_game_a79df6376b332d63c9eca0dcee30305c3}} 
+\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to update game logic. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 15 of file game.\+cc.
+
+
+
+References Text\+::add(), F\+R\+A\+M\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+E\+C\+O\+ND, Player\+::get\+\_\+score(), Window\+::get\+\_\+window\+\_\+size(), Player\+::has\+\_\+lost(), Player\+::lose(), Assets\+::update(), and Player\+::update().
+
+
+
+Referenced by main().
+
+
+\begin{DoxyCode}
+15                   \{
+16     sf::Vector2u wsize = m\_window.\hyperlink{class_window_a44853817aa046240897d0ce78003bacd}{get\_window\_size}();
+17 
+18     \textcolor{keywordtype}{float} timestep = 1.0f / \hyperlink{game_8h_a85f9d29551f1bf30f03229da27cb532f}{FRAMES\_PER\_SECOND};
+19 
+20     \textcolor{comment}{// 60 frames per second}
+21     \textcolor{keywordflow}{if}(m\_elapsed.asSeconds() >= timestep) \{
+22         \textcolor{keywordflow}{if}(!m\_player.\hyperlink{class_player_a734ead9fd1aa89c2574310425da18dc7}{has\_lost}()) \{
+23             m\_asset.\hyperlink{class_assets_a6af3226d6a6960be5260e9edc22cf665}{update}(m\_elapsed);
+24             m\_player.\hyperlink{class_player_a83282cabf0d698e16fe452759c50712c}{update}(m\_asset, m\_elapsed);
+25             
+26             \textcolor{keywordflow}{if}(m\_time\_left < 0.01f)
+27                 m\_player.\hyperlink{class_player_af1ae3d8d7e22c5502d0380c16c7329ef}{lose}();
+28             \textcolor{keywordflow}{else}
+29                 m\_time\_left -= m\_elapsed.asSeconds();
+30             
+31             m\_time.\hyperlink{class_text_ab5f6fabb3e5e029ed0e42d21757c9521}{add}(\textcolor{stringliteral}{"Time Left: "} + std::to\_string(m\_time\_left));
+32             m\_elapsed -= sf::seconds(timestep);
+33         \}
+34         \textcolor{keywordflow}{else} \{
+35             m\_time.\hyperlink{class_text_ab5f6fabb3e5e029ed0e42d21757c9521}{add}(\textcolor{stringliteral}{"YOU LOST!"});
+36             m\_score.\hyperlink{class_text_ab5f6fabb3e5e029ed0e42d21757c9521}{add}(\textcolor{stringliteral}{"Score: "} + std::to\_string(m\_player.\hyperlink{class_player_ad65c379a083e7c6656721616f8784059}{get\_score}()));
+37         \}
+38     \}
+39 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{game_8h}{game.\+h}\item 
+\hyperlink{game_8cc}{game.\+cc}\end{DoxyCompactItemize}

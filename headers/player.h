@@ -45,6 +45,18 @@
 
 #include "assets.h"
 
+/*-------------------------------------------------------------------*
+*    GLOBAL VARIABLES AND CONSTANTS                                  *
+*--------------------------------------------------------------------*/
+
+/* Global constants */
+
+// positions
+#define PLAYER_POS_LX 100
+#define PLAYER_POS_RX 500
+#define PLAYER_POS_Y 1050
+#define PLAYER_ORIGIN_RX 300
+
 class Assets;
 enum class side;
 
@@ -58,21 +70,72 @@ public:
     Player();
     ~Player();
 
+    /**
+     * \fn void init()
+     * \brief Function to init textures and positions for this class
+     * \return void
+     */
     void init();
 
+    /**
+     * \fn int get_score()
+     * \brief Function to get player's score
+     * \return current score
+     */
     int get_score();
+
+    /**
+     * \fn side get_side()
+     * \brief Function to get player's side
+     * \return player's side which is an enum
+     */
     side get_side();
 
-    void set_side(side s);
+    /**
+     * \fn void increment_score()
+     * \brief Function to increment player's score
+     * \return void
+     */
     void increment_score();
 
+    /**
+     * \fn void lose()
+     * \brief Function to make player lose
+     * \return void
+     */
     void lose();
+
+    /**
+     * \fn bool has_lost()
+     * \brief Function to check if you've lost
+     * \return true if lost, false otherwise
+     */
     bool has_lost();
 
+    /**
+     * \fn void draw(sf::RenderWindow& window)
+     * \brief Function to draw everything to screen
+     * \param window Drawable window
+     * \return void
+     */
     void draw(sf::RenderWindow& window);
+
+    /**
+     * \fn void update(Assets& asset, sf::Time& dt)
+     * \brief Function to animate player and check if you've lost
+     * \param asset For getting bounds of the last branch
+     * \param dt Calculated delta time
+     * \return void
+     */
     void update(Assets& asset, sf::Time& dt);
 
-    void handle_input(sf::Event event);
+    /**
+     * \fn void handle_input(sf::Event& event)
+     * \brief Function to handle player input
+     * \param event Event class by reference for getting the current event
+     * \return void
+     */
+    void handle_input(sf::Event& event);
 private:
     sf::Texture m_texture;
     sf::Texture m_anim;

@@ -1,0 +1,8 @@
+<map id="headers/player.h" name="headers/player.h">
+<area shape="rect" id="node2" href="$assets_8h.html" title="headers/assets.h" alt="" coords="6,80,129,107"/>
+<area shape="rect" id="node4" href="$game_8h.html" title="headers/game.h" alt="" coords="109,155,223,181"/>
+<area shape="rect" id="node7" href="$player_8cc.html" title="player.cc" alt="" coords="203,80,278,107"/>
+<area shape="rect" id="node3" href="$assets_8cc.html" title="assets.cc" alt="" coords="5,155,84,181"/>
+<area shape="rect" id="node5" href="$game_8cc.html" title="game.cc" alt="" coords="81,229,153,256"/>
+<area shape="rect" id="node6" href="$timber_8cc.html" title="timber.cc" alt="" coords="177,229,253,256"/>
+</map>

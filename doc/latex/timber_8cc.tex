@@ -1,0 +1,48 @@
+\hypertarget{timber_8cc}{}\section{timber.\+cc File Reference}
+\label{timber_8cc}\index{timber.\+cc@{timber.\+cc}}
+{\ttfamily \#include \char`\"{}headers/game.\+h\char`\"{}}\newline
+Include dependency graph for timber.\+cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{timber_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{timber_8cc_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{timber_8cc_a840291bc02cba5474a4cb46a9b9566fe}\label{timber_8cc_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{timber.\+cc@{timber.\+cc}!main@{main}}
+\index{main@{main}!timber.\+cc@{timber.\+cc}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 14 of file timber.\+cc.
+
+
+
+References Game\+::get\+\_\+window(), Game\+::handle\+\_\+events(), Window\+::is\+\_\+done(), Game\+::render(), Game\+::restart\+\_\+clock(), and Game\+::update().
+
+
+\begin{DoxyCode}
+14                \{
+15 
+16     \hyperlink{class_game}{Game} game;
+17 
+18     \textcolor{keywordflow}{while}(!game.\hyperlink{class_game_ada27344ddafc8489f4d6ab5ec6cd9a8e}{get\_window}()->\hyperlink{class_window_ad8206b00f1fcb41deb97d34a58f10e14}{is\_done}()) \{
+19         game.\hyperlink{class_game_a698430daa658033e7746e3a161a859a9}{handle\_events}();
+20         game.\hyperlink{class_game_a79df6376b332d63c9eca0dcee30305c3}{update}();
+21         game.\hyperlink{class_game_a15ddd769261d923827a3cdf41499c843}{render}();
+22         game.\hyperlink{class_game_a528bf1006e9dfed3b51d9aae79f8c287}{restart\_clock}();
+23     \}
+24     \textcolor{keywordflow}{return}(0);
+25 \}
+\end{DoxyCode}

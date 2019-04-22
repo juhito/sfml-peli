@@ -13,24 +13,25 @@ void Assets::init() {
     m_bg.setTexture(m_bg_t);
     m_bg.setPosition(0, 0);
     
-    for(int i = 0; i < 6; i++) {
+    for(int i = 0; i < TREE_COUNT; i++) {
         m_tree_u[i].setTexture(m_tree_t);
+
         if(i == 0)
-            m_tree_u[i].setPosition(50, 900);
+            m_tree_u[i].setPosition(TREE_POS_X, TREE_DEFAULT_Y);
         else
-            m_tree_u[i].setPosition(50, m_tree_u[i-1].getPosition().y - 200);
+            m_tree_u[i].setPosition(TREE_POS_X, m_tree_u[i-1].getPosition().y - TREE_SIZE_STUMP);
         
         m_branches[i].setTexture(m_branch_t);
-        m_branches[i].setPosition(-2000, -2000);
+        m_branches[i].setPosition(OUT_OF_VIEW, OUT_OF_VIEW);
         m_branch_position[i] = side::NONE;
     }
     
     m_tree_b.setTexture(m_tree_bt);
-    m_tree_b.setPosition(50, 1100);
+    m_tree_b.setPosition(TREE_POS_X, TREE_POS_STUMP);
 
     m_log.setTexture(m_log_t);
-    m_log.setPosition(394, 1250);
-    m_log.setScale({.56, .56});
+    m_log.setPosition(LOG_DEFAULT_X, LOG_DEFAULT_Y);
+    m_log.setScale({LOG_SCALE_W, LOG_SCALE_H});
     m_log_active = false;
     m_input = true;
 }
@@ -38,44 +39,43 @@ void Assets::init() {
 void Assets::update(sf::Time& dt) {
     if(m_log_active) {
         if(m_log_side == side::LEFT) {
-            m_log.setPosition(m_log.getPosition().x + (4000 * dt.asSeconds()),
-                              m_log.getPosition().y + (-2500 * dt.asSeconds()));
-            //std::cout << m_log.getPosition().x << "\n";
+            // if log side is left, shoot to right
+            m_log.setPosition(m_log.getPosition().x + (LOG_SPEED_X * dt.asSeconds()),
+                              m_log.getPosition().y + (LOG_SPEED_Y * dt.asSeconds()));
         }
         else if(m_log_side == side::RIGHT) {
-            m_log.setPosition(m_log.getPosition().x + (-4000 * dt.asSeconds()),
-                              m_log.getPosition().y + (-2500 * dt.asSeconds()));
-            //std::cout << m_log.getPosition().x << "\n";
+            // if log side is right, shoot to left
+            m_log.setPosition(m_log.getPosition().x + (-LOG_SPEED_X * dt.asSeconds()),
+                              m_log.getPosition().y + (LOG_SPEED_Y * dt.asSeconds()));
         }
 
-        if(m_log.getPosition().x < -100 ||
-           m_log.getPosition().x > 1000) {
-            //std::cout << "LOG OUT OF VIEW!!\n";
+        if(m_log.getPosition().x < LOG_MIN_X ||
+           m_log.getPosition().x > LOG_MAX_X) {
+            // log gets out of view, reset to default
             m_log_active = false;
-            m_log.setPosition(394, 1250);
+            m_log.setPosition(LOG_DEFAULT_X, LOG_DEFAULT_Y);
         }
     }
     
     for(int i = 0; i < 6; i++) {
-        float height = i * 200;
+        float height = i * BRANCH_POS_GAP;
 
         if(m_branch_position[i] == side::LEFT) {
             // move the sprite to left
-            m_branches[i].setPosition(360, height);
-            m_branches[i].setOrigin(300, 40);
+            m_branches[i].setPosition(BRANCH_POS_LEFT_X, height);
+            m_branches[i].setOrigin(BRANCH_ORIGIN_LEFT_X, BRANCH_ORIGIN_LEFT_Y);
             m_branches[i].setRotation(0);
         }
         else if(m_branch_position[i] == side::RIGHT) {
             // move the sprite to right
-            m_branches[i].setPosition(470, height);
+            m_branches[i].setPosition(BRANCH_POS_RIGHT_X, height);
 
-            m_branches[i].setOrigin(400, 170);
+            m_branches[i].setOrigin(BRANCH_ORIGIN_RIGHT_X, BRANCH_ORIGIN_RIGHT_Y);
             m_branches[i].setRotation(180);
         }
         else
-            m_branches[i].setPosition(4000, height);
+            m_branches[i].setPosition(OUT_OF_VIEW, height); // if side::none, set out of view
     }
-
 }
 
 void Assets::handle_input(Player& player, Text& text, sf::Event& event) {
@@ -93,19 +93,19 @@ void Assets::handle_input(Player& player, Text& text, sf::Event& event) {
         }
         m_input = false;
     }
-
+    
     if(event.type == sf::Event::KeyReleased)
         m_input = true;
 }
 
 void Assets::draw(sf::RenderWindow& window) {
     window.draw(m_bg);
-    for(int i = 0; i < 6; i++)   
+    for(int i = 0; i < TREE_COUNT; i++)   
         window.draw(m_tree_u[i]);
     
     window.draw(m_tree_b);
 
-    for(int i = 0; i < 6; i++)
+    for(int i = 0; i < BRANCH_COUNT; i++)
         window.draw(m_branches[i]);
     
     if(m_log_active)
@@ -114,16 +114,13 @@ void Assets::draw(sf::RenderWindow& window) {
 
 void Assets::update_branches(int seed) {    
     // moving all branches down one
-    for(int i = 6; i > 0; i--) 
+    for(int i = BRANCH_COUNT; i > 0; i--) 
         m_branch_position[i] = m_branch_position[i - 1];
 
     // spawn a new branch at position 0
     // left right or none
     srand((int)time(0) + seed);
     int r = (rand() % 15);
-
-    //std::cout << r << "\n";
-
 
     if(r > 0 && r <= 5) {
         m_branch_position[0] = side::LEFT;
@@ -137,5 +134,5 @@ void Assets::update_branches(int seed) {
 }
 
 sf::FloatRect Assets::get_branch_bounds() {
-    return(m_branches[5].getGlobalBounds());
+    return(m_branches[BRANCH_COUNT - 1].getGlobalBounds());
 }

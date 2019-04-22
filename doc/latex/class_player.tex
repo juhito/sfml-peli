@@ -1,0 +1,396 @@
+\hypertarget{class_player}{}\section{Player Class Reference}
+\label{class_player}\index{Player@{Player}}
+
+
+{\ttfamily \#include $<$player.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player} ()
+\item 
+\hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player} ()
+\item 
+void \hyperlink{class_player_a015ea21fa1e7273e47d48cb20d9b12e3}{init} ()
+\begin{DoxyCompactList}\small\item\em Function to init textures and positions for this class. \end{DoxyCompactList}\item 
+int \hyperlink{class_player_ad65c379a083e7c6656721616f8784059}{get\+\_\+score} ()
+\begin{DoxyCompactList}\small\item\em Function to get player\textquotesingle{}s score. \end{DoxyCompactList}\item 
+\hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445}{side} \hyperlink{class_player_a6a10c68a1185ab336054868306fa3a73}{get\+\_\+side} ()
+\begin{DoxyCompactList}\small\item\em Function to get player\textquotesingle{}s side. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_ab58df1547917c39756f063b0d57a1793}{increment\+\_\+score} ()
+\begin{DoxyCompactList}\small\item\em Function to increment player\textquotesingle{}s score. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_af1ae3d8d7e22c5502d0380c16c7329ef}{lose} ()
+\begin{DoxyCompactList}\small\item\em Function to make player lose. \end{DoxyCompactList}\item 
+bool \hyperlink{class_player_a734ead9fd1aa89c2574310425da18dc7}{has\+\_\+lost} ()
+\begin{DoxyCompactList}\small\item\em Function to check if you\textquotesingle{}ve lost. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_a70bbe0afb8ef88207288c9134ae80b6e}{draw} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function to draw everything to screen. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_a83282cabf0d698e16fe452759c50712c}{update} (\hyperlink{class_assets}{Assets} \&asset, sf\+::\+Time \&dt)
+\begin{DoxyCompactList}\small\item\em Function to animate player and check if you\textquotesingle{}ve lost. \end{DoxyCompactList}\item 
+void \hyperlink{class_player_a2a56f0d2037a44c56934c4faac06f54d}{handle\+\_\+input} (sf\+::\+Event \&event)
+\begin{DoxyCompactList}\small\item\em Function to handle player input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 63 of file player.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}\label{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3 of file player.\+cc.
+
+
+\begin{DoxyCode}
+3 \{\}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_player_a749d2c00e1fe0f5c2746f7505a58c062}\label{class_player_a749d2c00e1fe0f5c2746f7505a58c062}} 
+\index{Player@{Player}!````~Player@{$\sim$\+Player}}
+\index{````~Player@{$\sim$\+Player}!Player@{Player}}
+\subsubsection{\texorpdfstring{$\sim$\+Player()}{~Player()}}
+{\footnotesize\ttfamily Player\+::$\sim$\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file player.\+cc.
+
+
+\begin{DoxyCode}
+5 \{\}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_player_a70bbe0afb8ef88207288c9134ae80b6e}\label{class_player_a70bbe0afb8ef88207288c9134ae80b6e}} 
+\index{Player@{Player}!draw@{draw}}
+\index{draw@{draw}!Player@{Player}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Player\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function to draw everything to screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Drawable window \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 89 of file player.\+cc.
+
+
+
+Referenced by Game\+::render().
+
+
+\begin{DoxyCode}
+89                                         \{
+90     window.draw(m\_sprite);
+91 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_player_ad65c379a083e7c6656721616f8784059}\label{class_player_ad65c379a083e7c6656721616f8784059}} 
+\index{Player@{Player}!get\+\_\+score@{get\+\_\+score}}
+\index{get\+\_\+score@{get\+\_\+score}!Player@{Player}}
+\subsubsection{\texorpdfstring{get\+\_\+score()}{get\_score()}}
+{\footnotesize\ttfamily int Player\+::get\+\_\+score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get player\textquotesingle{}s score. 
+
+\begin{DoxyReturn}{Returns}
+current score 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file player.\+cc.
+
+
+
+Referenced by Assets\+::handle\+\_\+input(), and Game\+::update().
+
+
+\begin{DoxyCode}
+21                       \{
+22     \textcolor{keywordflow}{return}(m\_score);
+23 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_player_a6a10c68a1185ab336054868306fa3a73}\label{class_player_a6a10c68a1185ab336054868306fa3a73}} 
+\index{Player@{Player}!get\+\_\+side@{get\+\_\+side}}
+\index{get\+\_\+side@{get\+\_\+side}!Player@{Player}}
+\subsubsection{\texorpdfstring{get\+\_\+side()}{get\_side()}}
+{\footnotesize\ttfamily \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445}{side} Player\+::get\+\_\+side (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get player\textquotesingle{}s side. 
+
+\begin{DoxyReturn}{Returns}
+player\textquotesingle{}s side which is an enum 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file player.\+cc.
+
+
+\begin{DoxyCode}
+25                       \{
+26     \textcolor{keywordflow}{return}(m\_side);
+27 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_player_a2a56f0d2037a44c56934c4faac06f54d}\label{class_player_a2a56f0d2037a44c56934c4faac06f54d}} 
+\index{Player@{Player}!handle\+\_\+input@{handle\+\_\+input}}
+\index{handle\+\_\+input@{handle\+\_\+input}!Player@{Player}}
+\subsubsection{\texorpdfstring{handle\+\_\+input()}{handle\_input()}}
+{\footnotesize\ttfamily void Player\+::handle\+\_\+input (\begin{DoxyParamCaption}\item[{sf\+::\+Event \&}]{event }\end{DoxyParamCaption})}
+
+
+
+Function to handle player input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Event class by reference for getting the current event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file player.\+cc.
+
+
+
+References increment\+\_\+score(), L\+E\+FT, P\+L\+A\+Y\+E\+R\+\_\+\+O\+R\+I\+G\+I\+N\+\_\+\+RX, P\+L\+A\+Y\+E\+R\+\_\+\+P\+O\+S\+\_\+\+LX, P\+L\+A\+Y\+E\+R\+\_\+\+P\+O\+S\+\_\+\+RX, P\+L\+A\+Y\+E\+R\+\_\+\+P\+O\+S\+\_\+Y, and R\+I\+G\+HT.
+
+
+
+Referenced by Game\+::handle\+\_\+events().
+
+
+\begin{DoxyCode}
+41                                         \{
+42     \textcolor{keywordflow}{if}(event.type == sf::Event::KeyPressed) \{
+43         \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::Left && m\_input) \{
+44             m\_side = \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a684d325a7303f52e64011467ff5c5758}{side::LEFT};
+45             this->\hyperlink{class_player_ab58df1547917c39756f063b0d57a1793}{increment\_score}();               
+46             \textcolor{keywordflow}{if}(m\_side == \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a684d325a7303f52e64011467ff5c5758}{side::LEFT}) \{
+47                 m\_sprite.setTexture(m\_anim);
+48                 m\_sprite.setScale(1.f, 1.f); \textcolor{comment}{// change orientation to normal}
+49                 m\_sprite.setOrigin(0, 0);
+50                 m\_sprite.setPosition(\hyperlink{player_8h_ac5c27f8ceb9550dd92443cd00605dc3e}{PLAYER\_POS\_LX}, \hyperlink{player_8h_a23e4a20c724cefdd69b13c2826a8c12f}{PLAYER\_POS\_Y});
+51             \}
+52         \}
+53         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::Right && m\_input) \{
+54             m\_side = \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a21507b40c80068eda19865706fdc2403}{side::RIGHT};
+55             this->\hyperlink{class_player_ab58df1547917c39756f063b0d57a1793}{increment\_score}();
+56             \textcolor{keywordflow}{if}(m\_side == \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a21507b40c80068eda19865706fdc2403}{side::RIGHT}) \{
+57                 m\_sprite.setTexture(m\_anim);
+58                 m\_sprite.setScale(-1.f, 1.f); \textcolor{comment}{// change orientation}
+59                 m\_sprite.setOrigin(\hyperlink{player_8h_a654c17427cd994ed8ba0206bda8557cf}{PLAYER\_ORIGIN\_RX}, 0);
+60                 m\_sprite.setPosition(\hyperlink{player_8h_af87a8f30ac734fbe3fcd0572bd0634d4}{PLAYER\_POS\_RX}, \hyperlink{player_8h_a23e4a20c724cefdd69b13c2826a8c12f}{PLAYER\_POS\_Y});
+61             \}
+62         \}
+63         m\_input = \textcolor{keyword}{false};
+64     \}
+65 
+66     \textcolor{keywordflow}{if}(event.type == sf::Event::KeyReleased)
+67         m\_input = \textcolor{keyword}{true};
+68 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_player_a734ead9fd1aa89c2574310425da18dc7}\label{class_player_a734ead9fd1aa89c2574310425da18dc7}} 
+\index{Player@{Player}!has\+\_\+lost@{has\+\_\+lost}}
+\index{has\+\_\+lost@{has\+\_\+lost}!Player@{Player}}
+\subsubsection{\texorpdfstring{has\+\_\+lost()}{has\_lost()}}
+{\footnotesize\ttfamily bool Player\+::has\+\_\+lost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to check if you\textquotesingle{}ve lost. 
+
+\begin{DoxyReturn}{Returns}
+true if lost, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file player.\+cc.
+
+
+
+Referenced by Game\+::handle\+\_\+events(), Game\+::handle\+\_\+input(), and Game\+::update().
+
+
+\begin{DoxyCode}
+37                       \{
+38     \textcolor{keywordflow}{return}(m\_lost);
+39 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_player_ab58df1547917c39756f063b0d57a1793}\label{class_player_ab58df1547917c39756f063b0d57a1793}} 
+\index{Player@{Player}!increment\+\_\+score@{increment\+\_\+score}}
+\index{increment\+\_\+score@{increment\+\_\+score}!Player@{Player}}
+\subsubsection{\texorpdfstring{increment\+\_\+score()}{increment\_score()}}
+{\footnotesize\ttfamily void Player\+::increment\+\_\+score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to increment player\textquotesingle{}s score. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 29 of file player.\+cc.
+
+
+
+Referenced by handle\+\_\+input().
+
+
+\begin{DoxyCode}
+29                              \{
+30     m\_score++;
+31 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_player_a015ea21fa1e7273e47d48cb20d9b12e3}\label{class_player_a015ea21fa1e7273e47d48cb20d9b12e3}} 
+\index{Player@{Player}!init@{init}}
+\index{init@{init}!Player@{Player}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Player\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to init textures and positions for this class. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 7 of file player.\+cc.
+
+
+
+References L\+E\+FT, P\+L\+A\+Y\+E\+R\+\_\+\+P\+O\+S\+\_\+\+LX, and P\+L\+A\+Y\+E\+R\+\_\+\+P\+O\+S\+\_\+Y.
+
+
+
+Referenced by Game\+::\+Game().
+
+
+\begin{DoxyCode}
+7                   \{
+8     m\_texture.loadFromFile(\textcolor{stringliteral}{"assets/tm.png"});
+9     m\_texture.setSmooth(\textcolor{keyword}{true});
+10     m\_anim.loadFromFile(\textcolor{stringliteral}{"assets/tm2.png"});
+11     m\_anim.setSmooth(\textcolor{keyword}{true});
+12     m\_sprite.setTexture(m\_texture);
+13     m\_sprite.setPosition(\hyperlink{player_8h_ac5c27f8ceb9550dd92443cd00605dc3e}{PLAYER\_POS\_LX}, \hyperlink{player_8h_a23e4a20c724cefdd69b13c2826a8c12f}{PLAYER\_POS\_Y});
+14     m\_side = \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445a684d325a7303f52e64011467ff5c5758}{side::LEFT};
+15     m\_score = 0;
+16     m\_lost = \textcolor{keyword}{false};
+17     m\_duration = 0;
+18     m\_input = \textcolor{keyword}{true};
+19 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_player_af1ae3d8d7e22c5502d0380c16c7329ef}\label{class_player_af1ae3d8d7e22c5502d0380c16c7329ef}} 
+\index{Player@{Player}!lose@{lose}}
+\index{lose@{lose}!Player@{Player}}
+\subsubsection{\texorpdfstring{lose()}{lose()}}
+{\footnotesize\ttfamily void Player\+::lose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to make player lose. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file player.\+cc.
+
+
+
+Referenced by Game\+::update(), and update().
+
+
+\begin{DoxyCode}
+33                   \{
+34     m\_lost = \textcolor{keyword}{true};
+35 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_player_a83282cabf0d698e16fe452759c50712c}\label{class_player_a83282cabf0d698e16fe452759c50712c}} 
+\index{Player@{Player}!update@{update}}
+\index{update@{update}!Player@{Player}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Player\+::update (\begin{DoxyParamCaption}\item[{\hyperlink{class_assets}{Assets} \&}]{asset,  }\item[{sf\+::\+Time \&}]{dt }\end{DoxyParamCaption})}
+
+
+
+Function to animate player and check if you\textquotesingle{}ve lost. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em asset} & For getting bounds of the last branch \\
+\hline
+{\em dt} & Calculated delta time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file player.\+cc.
+
+
+
+References Assets\+::get\+\_\+branch\+\_\+bounds(), lose(), and N\+O\+NE.
+
+
+
+Referenced by Game\+::update().
+
+
+\begin{DoxyCode}
+70                                              \{
+71     \textcolor{comment}{/*}
+72 \textcolor{comment}{     * NOTE:}
+73 \textcolor{comment}{     * The implementation of animating is awful but it was probably /}
+74 \textcolor{comment}{     * the only way of doing this without creating a whole animation manager system.}
+75 \textcolor{comment}{     */}
+76     \textcolor{keywordflow}{if}(m\_side != \hyperlink{assets_8h_afc015eff6557e84151d2e53b94375445ab50339a10e1de285ac99d4c3990b8693}{side::NONE}) \{
+77         m\_duration += dt.asSeconds();
+78         \textcolor{keywordflow}{if}(m\_duration > 0.2f) \{
+79             m\_duration = 0;
+80             m\_sprite.setTexture(m\_texture);
+81         \}
+82     \}
+83     
+84     \textcolor{keywordflow}{if}(m\_sprite.getGlobalBounds().intersects(asset.\hyperlink{class_assets_aac229701c6bc1d67c56a1e607658d923}{get\_branch\_bounds}())) \{
+85         this->\hyperlink{class_player_af1ae3d8d7e22c5502d0380c16c7329ef}{lose}();
+86     \}
+87 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{player_8h}{player.\+h}\item 
+\hyperlink{player_8cc}{player.\+cc}\end{DoxyCompactItemize}

@@ -1,0 +1,347 @@
+\hypertarget{class_window}{}\section{Window Class Reference}
+\label{class_window}\index{Window@{Window}}
+
+
+{\ttfamily \#include $<$window.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_window_a74e6087da23d3c24e9fac0245e5ec92c}{Window} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for window. \end{DoxyCompactList}\item 
+\hyperlink{class_window_a11aa538fb51a75a2017d6a1b3c7ccd34}{Window} (const std\+::string \&title, const sf\+::\+Vector2u \&size)
+\begin{DoxyCompactList}\small\item\em Constructor with parameters for calling the setup method. \end{DoxyCompactList}\item 
+\hyperlink{class_window_a245d821e6016fa1f6970ccbbedd635f6}{$\sim$\+Window} ()
+\item 
+void \hyperlink{class_window_a9a01adf499565557def564579805c413}{begin\+\_\+draw} ()
+\begin{DoxyCompactList}\small\item\em Function to start drawing (clears the screen) \end{DoxyCompactList}\item 
+void \hyperlink{class_window_ae2d4995568b0bb68fd8dceff3cce216c}{end\+\_\+draw} ()
+\begin{DoxyCompactList}\small\item\em Function to end drawing (displays everything that\textquotesingle{}s been drawed) \end{DoxyCompactList}\item 
+void \hyperlink{class_window_ae7c221f904b304e507339e6e25ccd018}{handle\+\_\+events} (sf\+::\+Event \&event)
+\begin{DoxyCompactList}\small\item\em Function to poll events and handle them. \end{DoxyCompactList}\item 
+bool \hyperlink{class_window_ad8206b00f1fcb41deb97d34a58f10e14}{is\+\_\+done} ()
+\begin{DoxyCompactList}\small\item\em Function to check if we should close the window. \end{DoxyCompactList}\item 
+sf\+::\+Event \& \hyperlink{class_window_a878ba53cecdd324dd80274caa0c98a7c}{get\+\_\+event} ()
+\begin{DoxyCompactList}\small\item\em Function to get the event member variable. \end{DoxyCompactList}\item 
+sf\+::\+Render\+Window $\ast$ \hyperlink{class_window_ae921197766adfddd372dcc40879f8b45}{get\+\_\+render\+\_\+window} ()
+\begin{DoxyCompactList}\small\item\em Function to get the current window. \end{DoxyCompactList}\item 
+sf\+::\+Vector2u \hyperlink{class_window_a44853817aa046240897d0ce78003bacd}{get\+\_\+window\+\_\+size} ()
+\begin{DoxyCompactList}\small\item\em Function to get the window size. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_ab9e37002f72c90f1a6075459729f6c0f}{draw} (sf\+::\+Drawable \&asset)
+\begin{DoxyCompactList}\small\item\em Function to draw everything to the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 55 of file window.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_window_a74e6087da23d3c24e9fac0245e5ec92c}\label{class_window_a74e6087da23d3c24e9fac0245e5ec92c}} 
+\index{Window@{Window}!Window@{Window}}
+\index{Window@{Window}!Window@{Window}}
+\subsubsection{\texorpdfstring{Window()}{Window()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Window\+::\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for window. 
+
+
+
+Definition at line 3 of file window.\+cc.
+
+
+\begin{DoxyCode}
+3                \{
+4     this->setup(\textcolor{stringliteral}{"Window"}, \{640, 480\});
+5 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_window_a11aa538fb51a75a2017d6a1b3c7ccd34}\label{class_window_a11aa538fb51a75a2017d6a1b3c7ccd34}} 
+\index{Window@{Window}!Window@{Window}}
+\index{Window@{Window}!Window@{Window}}
+\subsubsection{\texorpdfstring{Window()}{Window()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Window\+::\+Window (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title,  }\item[{const sf\+::\+Vector2u \&}]{size }\end{DoxyParamCaption})}
+
+
+
+Constructor with parameters for calling the setup method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & \hyperlink{class_window}{Window} title \\
+\hline
+{\em size} & \hyperlink{class_window}{Window} size \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 7 of file window.\+cc.
+
+
+\begin{DoxyCode}
+7                                                              \{
+8     this->setup(title, size);
+9 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_window_a245d821e6016fa1f6970ccbbedd635f6}\label{class_window_a245d821e6016fa1f6970ccbbedd635f6}} 
+\index{Window@{Window}!````~Window@{$\sim$\+Window}}
+\index{````~Window@{$\sim$\+Window}!Window@{Window}}
+\subsubsection{\texorpdfstring{$\sim$\+Window()}{~Window()}}
+{\footnotesize\ttfamily Window\+::$\sim$\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file window.\+cc.
+
+
+\begin{DoxyCode}
+11                 \{
+12     this->destroy();
+13 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_window_a9a01adf499565557def564579805c413}\label{class_window_a9a01adf499565557def564579805c413}} 
+\index{Window@{Window}!begin\+\_\+draw@{begin\+\_\+draw}}
+\index{begin\+\_\+draw@{begin\+\_\+draw}!Window@{Window}}
+\subsubsection{\texorpdfstring{begin\+\_\+draw()}{begin\_draw()}}
+{\footnotesize\ttfamily void Window\+::begin\+\_\+draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to start drawing (clears the screen) 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file window.\+cc.
+
+
+
+Referenced by Game\+::render().
+
+
+\begin{DoxyCode}
+49                         \{
+50     m\_window.clear(sf::Color::Black);
+51 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_window_ab9e37002f72c90f1a6075459729f6c0f}\label{class_window_ab9e37002f72c90f1a6075459729f6c0f}} 
+\index{Window@{Window}!draw@{draw}}
+\index{draw@{draw}!Window@{Window}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Window\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Drawable \&}]{asset }\end{DoxyParamCaption})}
+
+
+
+Function to draw everything to the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em asset} & Any asset that is child of Drawable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file window.\+cc.
+
+
+\begin{DoxyCode}
+65                                    \{
+66     m\_window.draw(asset);
+67 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_window_ae2d4995568b0bb68fd8dceff3cce216c}\label{class_window_ae2d4995568b0bb68fd8dceff3cce216c}} 
+\index{Window@{Window}!end\+\_\+draw@{end\+\_\+draw}}
+\index{end\+\_\+draw@{end\+\_\+draw}!Window@{Window}}
+\subsubsection{\texorpdfstring{end\+\_\+draw()}{end\_draw()}}
+{\footnotesize\ttfamily void Window\+::end\+\_\+draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to end drawing (displays everything that\textquotesingle{}s been drawed) 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file window.\+cc.
+
+
+
+Referenced by Game\+::render().
+
+
+\begin{DoxyCode}
+53                       \{
+54     m\_window.display();
+55 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_window_a878ba53cecdd324dd80274caa0c98a7c}\label{class_window_a878ba53cecdd324dd80274caa0c98a7c}} 
+\index{Window@{Window}!get\+\_\+event@{get\+\_\+event}}
+\index{get\+\_\+event@{get\+\_\+event}!Window@{Window}}
+\subsubsection{\texorpdfstring{get\+\_\+event()}{get\_event()}}
+{\footnotesize\ttfamily sf\+::\+Event Window\+::get\+\_\+event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get the event member variable. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the event member variable 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file window.\+cc.
+
+
+
+Referenced by Game\+::handle\+\_\+events().
+
+
+\begin{DoxyCode}
+73                            \{
+74     \textcolor{keywordflow}{return}(m\_event);
+75 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_window_ae921197766adfddd372dcc40879f8b45}\label{class_window_ae921197766adfddd372dcc40879f8b45}} 
+\index{Window@{Window}!get\+\_\+render\+\_\+window@{get\+\_\+render\+\_\+window}}
+\index{get\+\_\+render\+\_\+window@{get\+\_\+render\+\_\+window}!Window@{Window}}
+\subsubsection{\texorpdfstring{get\+\_\+render\+\_\+window()}{get\_render\_window()}}
+{\footnotesize\ttfamily sf\+::\+Render\+Window $\ast$ Window\+::get\+\_\+render\+\_\+window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get the current window. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the window 
+\end{DoxyReturn}
+
+
+Definition at line 69 of file window.\+cc.
+
+
+
+Referenced by Game\+::handle\+\_\+events(), and Game\+::render().
+
+
+\begin{DoxyCode}
+69                                           \{
+70     \textcolor{keywordflow}{return}(&m\_window);
+71 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_window_a44853817aa046240897d0ce78003bacd}\label{class_window_a44853817aa046240897d0ce78003bacd}} 
+\index{Window@{Window}!get\+\_\+window\+\_\+size@{get\+\_\+window\+\_\+size}}
+\index{get\+\_\+window\+\_\+size@{get\+\_\+window\+\_\+size}!Window@{Window}}
+\subsubsection{\texorpdfstring{get\+\_\+window\+\_\+size()}{get\_window\_size()}}
+{\footnotesize\ttfamily sf\+::\+Vector2u Window\+::get\+\_\+window\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get the window size. 
+
+\begin{DoxyReturn}{Returns}
+Returns the dimensions of the window as Vector2u 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file window.\+cc.
+
+
+
+Referenced by Game\+::update().
+
+
+\begin{DoxyCode}
+61                                    \{
+62     \textcolor{keywordflow}{return}(m\_wsize);
+63 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_window_ae7c221f904b304e507339e6e25ccd018}\label{class_window_ae7c221f904b304e507339e6e25ccd018}} 
+\index{Window@{Window}!handle\+\_\+events@{handle\+\_\+events}}
+\index{handle\+\_\+events@{handle\+\_\+events}!Window@{Window}}
+\subsubsection{\texorpdfstring{handle\+\_\+events()}{handle\_events()}}
+{\footnotesize\ttfamily void Window\+::handle\+\_\+events (\begin{DoxyParamCaption}\item[{sf\+::\+Event \&}]{event }\end{DoxyParamCaption})}
+
+
+
+Function to poll events and handle them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Current event to handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file window.\+cc.
+
+
+
+References M\+\_\+\+V\+I\+E\+W\+\_\+X, and M\+\_\+\+V\+I\+E\+W\+\_\+Y.
+
+
+
+Referenced by Game\+::handle\+\_\+events().
+
+
+\begin{DoxyCode}
+22                                          \{
+23     \textcolor{keywordflow}{switch}(event.type) \{
+24         \textcolor{keywordflow}{case} sf::Event::Closed:
+25             m\_done = \textcolor{keyword}{true};
+26             \textcolor{keywordflow}{break};
+27         \textcolor{keywordflow}{case} sf::Event::KeyPressed:
+28             \textcolor{keywordflow}{if}(event.key.code == sf::Keyboard::Escape)
+29                 m\_done = \textcolor{keyword}{true};
+30             \textcolor{keywordflow}{break};
+31     \}
+32 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_window_ad8206b00f1fcb41deb97d34a58f10e14}\label{class_window_ad8206b00f1fcb41deb97d34a58f10e14}} 
+\index{Window@{Window}!is\+\_\+done@{is\+\_\+done}}
+\index{is\+\_\+done@{is\+\_\+done}!Window@{Window}}
+\subsubsection{\texorpdfstring{is\+\_\+done()}{is\_done()}}
+{\footnotesize\ttfamily bool Window\+::is\+\_\+done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to check if we should close the window. 
+
+\begin{DoxyReturn}{Returns}
+true if we should close, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file window.\+cc.
+
+
+
+Referenced by main().
+
+
+\begin{DoxyCode}
+57                      \{
+58     \textcolor{keywordflow}{return}(m\_done);
+59 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{window_8h}{window.\+h}\item 
+\hyperlink{window_8cc}{window.\+cc}\end{DoxyCompactItemize}

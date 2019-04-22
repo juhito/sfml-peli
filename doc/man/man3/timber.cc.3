@@ -1,0 +1,44 @@
+.TH "timber.cc" 3 "Mon Apr 22 2019" "Version 1.1" "Timberman" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+timber.cc
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'headers/game\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmain\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int main (void)"
+
+.PP
+Definition at line 14 of file timber\&.cc\&.
+.PP
+References Game::get_window(), Game::handle_events(), Window::is_done(), Game::render(), Game::restart_clock(), and Game::update()\&.
+.PP
+.nf
+14                {
+15 
+16     Game game;
+17 
+18     while(!game\&.get_window()->is_done()) {
+19         game\&.handle_events();
+20         game\&.update();
+21         game\&.render();
+22         game\&.restart_clock();
+23     }
+24     return(0);
+25 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Timberman from the source code\&.
